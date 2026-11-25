@@ -1,0 +1,71 @@
+{
+  "app": { "name": "Medlemskap" },
+  "nav": { "users": "Användare", "login": "Logga in", "logout": "Logga ut", "register": "Skapa konto" },
+  "home": {
+    "title": "Medlemskap",
+    "intro": "FGV:s medlemskap och användarkonton. Logga in eller skapa ett konto.",
+    "welcome": "Välkommen, {name}!",
+    "manageUsers": "Hantera användare",
+    "login": "Logga in",
+    "register": "Skapa konto"
+  },
+  "register": {
+    "title": "Skapa konto",
+    "intro": "Du får ett e-postmeddelande med en länk där du bekräftar din adress och väljer lösenord. Därefter ger en administratör dig tillgång till FGV:s applikationer.",
+    "firstName": "Förnamn",
+    "lastName": "Efternamn",
+    "email": "E-postadress",
+    "message": "Meddelande till administratörerna",
+    "messageHint": "Vem är du och vad vill du ha tillgång till?",
+    "submit": "Skapa konto",
+    "sentTitle": "Kontrollera din e-post",
+    "sent": "Om adressen går att använda har vi skickat ett meddelande med en länk. Länken gäller i 48 timmar.",
+    "error": {
+      "challenge": "Kontrollen av att du inte är en robot misslyckades. Försök igen.",
+      "rate": "För många försök. Vänta en stund och försök igen.",
+      "invalid": "Kontrollera uppgifterna och försök igen.",
+      "unavailable": "Det gick inte att skapa kontot just nu. Försök igen senare."
+    }
+  },
+  "verify": {
+    "title": "Bekräfta e-postadress",
+    "explain": "Bekräfta din e-postadress. Du får sedan ett meddelande där du väljer lösenord.",
+    "confirm": "Bekräfta",
+    "done": "Tack! Din adress är bekräftad. Du får nu ett meddelande där du väljer lösenord. Därefter ger en administratör dig tillgång, och du får ett meddelande när det är klart.",
+    "invalid": "Länken fungerar inte längre. Skapa kontot igen om den har gått ut."
+  },
+  "admin": {
+    "users": "Användare",
+    "search": "Sök namn eller e-post",
+    "status": "Status",
+    "allStatuses": "Alla",
+    "statuses": { "PENDING": "Väntar på godkännande", "ACTIVE": "Aktiv", "DEACTIVATED": "Avaktiverad", "UNVERIFIED": "E-post ej bekräftad" },
+    "filter": "Filtrera",
+    "name": "Namn",
+    "email": "E-post",
+    "registered": "Registrerad",
+    "none": "Inga användare",
+    "pages": "Sidor",
+    "previous": "Föregående",
+    "next": "Nästa",
+    "registrationMessage": "Meddelande från användaren",
+    "applications": "Tillgång till applikationer",
+    "applicationsHelp": "Välj den högsta rollen. Rollerna under den ges också, och rollerna över tas bort.",
+    "inconsistent": "Rollerna i Keycloak följer inte ordningen. Spara för att rätta till dem.",
+    "noAccess": "Ingen tillgång",
+    "role": "Roll",
+    "save": "Spara",
+    "account": "Konto",
+    "activate": "Aktivera",
+    "deactivate": "Avaktivera",
+    "confirmDeactivate": "Avaktivera kontot och logga ut användaren?",
+    "resendVerification": "Skicka bekräftelselänk igen",
+    "sendSetPassword": "Skicka länk för att välja lösenord",
+    "sendPasswordReset": "Skicka länk för att återställa lösenord",
+    "reject": "Avvisa",
+    "rejectMessage": "Meddelande till användaren (valfritt)",
+    "rejectSubmit": "Avvisa och ta bort kontot",
+    "confirmReject": "Ta bort kontot?"
+  },
+  "errors": { "forbidden": "Du har inte behörighet till den här sidan." }
+}
