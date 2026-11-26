@@ -1,6 +1,16 @@
 {
-  "app": { "name": "Membership" },
-  "nav": { "users": "Users", "login": "Log in", "logout": "Log out", "register": "Create account" },
+  "app": {
+    "name": "Membership"
+  },
+  "nav": {
+    "users": "Users",
+    "login": "Log in",
+    "logout": "Log out",
+    "register": "Create account",
+    "membership": "My membership",
+    "payments": "Payments",
+    "fees": "Fees"
+  },
   "home": {
     "title": "Membership",
     "intro": "FGV's memberships and user accounts. Log in or create an account.",
@@ -39,7 +49,12 @@
     "search": "Search name or email",
     "status": "Status",
     "allStatuses": "All",
-    "statuses": { "PENDING": "Awaiting approval", "ACTIVE": "Active", "DEACTIVATED": "Deactivated", "UNVERIFIED": "Email not confirmed" },
+    "statuses": {
+      "PENDING": "Awaiting approval",
+      "ACTIVE": "Active",
+      "DEACTIVATED": "Deactivated",
+      "UNVERIFIED": "Email not confirmed"
+    },
     "filter": "Filter",
     "name": "Name",
     "email": "Email",
@@ -68,5 +83,87 @@
     "rejectSubmit": "Reject and delete the account",
     "confirmReject": "Delete the account?"
   },
-  "errors": { "forbidden": "You are not allowed to see this page." }
+  "errors": {
+    "forbidden": "You are not allowed to see this page."
+  },
+  "membership": {
+    "title": "My membership",
+    "notLinked": "Your account is not linked to a spexare in the register yet, so there is no membership to show. Contact the board.",
+    "memberships": "Memberships",
+    "none": "You have no memberships yet.",
+    "lifetimeFrom": "For life from {year}",
+    "pay": "Pay a membership fee",
+    "waiting": "Waiting for payment",
+    "status": {
+      "PENDING": "Not paid",
+      "REPORTED": "Waiting for confirmation",
+      "PAID": "Paid",
+      "WAIVED": "Granted",
+      "CANCELLED": "Cancelled"
+    },
+    "requestStatus": {
+      "OPEN": "Not paid",
+      "REPORTED": "Waiting for confirmation",
+      "MATCHED": "Paid",
+      "CANCELLED": "Cancelled"
+    }
+  },
+  "pay": {
+    "title": "Pay a membership fee",
+    "intro": "Pick the fee for each year you want to pay for, or the one-time fee for a life membership.",
+    "noFees": "No fees are open for payment right now.",
+    "forLife": "life membership",
+    "lifeGroup": "Life membership",
+    "total": "Total",
+    "submit": "Continue to payment",
+    "payTitle": "Pay your membership fee",
+    "lifeFrom": "For life from {year}",
+    "amount": "Amount",
+    "reference": "Reference",
+    "bankAccount": "Bank account",
+    "keepReference": "Keep the reference unchanged in the message. It is how the treasurer finds your payment.",
+    "openSwish": "Open Swish",
+    "qrAlt": "Swish QR code",
+    "iHavePaid": "I have paid",
+    "paidBy": "Who paid, if it was someone else",
+    "paidByHint": "E.g. your partner",
+    "reported": "Thank you! We will confirm when the treasurer has found your payment.",
+    "waitingForConfirmation": "Waiting for confirmation: you have said that you paid. You get an email when the treasurer has found the payment.",
+    "confirmed": "Your payment is confirmed. Thank you!",
+    "cancelled": "This request has been cancelled.",
+    "back": "Back to my membership"
+  },
+  "treasurer": {
+    "title": "Payments",
+    "intro": "Requests that wait for payment. Record a payment when you have seen the money, in the bank or in Swish; the payer gets a receipt and the membership counts.",
+    "none": "Nothing waits for payment.",
+    "lifeFrom": "for life from {year}",
+    "status": {
+      "OPEN": "Not paid",
+      "REPORTED": "The payer says they have paid"
+    },
+    "paidBy": "paid by {name}",
+    "date": "Date",
+    "amount": "Amount (kr)",
+    "how": "How",
+    "note": "Note",
+    "bank": "Bank transfer",
+    "cash": "Cash",
+    "record": "Record payment",
+    "cancel": "Cancel request",
+    "confirmCancel": "Cancel this request and its memberships?"
+  },
+  "fees": {
+    "title": "Fees",
+    "intro": "What a membership costs for a year, or the one-time fee for a life membership. Retired fees are not offered to members but stay on what was paid.",
+    "year": "Year",
+    "lifetime": "Life",
+    "nameSv": "Name (Swedish)",
+    "nameEn": "Name (English)",
+    "amount": "Amount (kr)",
+    "save": "Save",
+    "retire": "Retire",
+    "restore": "Offer again",
+    "add": "Add a fee"
+  }
 }

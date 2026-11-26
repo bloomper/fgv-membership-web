@@ -25,6 +25,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <header className="border-b border-zinc-200 dark:border-zinc-800">
             <nav className="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3 text-sm">
               <Link href="/" className="font-semibold">Medlemskap</Link>
+              {viewer && <Link href="/membership">{t("membership")}</Link>}
+              {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/payments">{t("payments")}</Link>}
+              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/fees">{t("fees")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/users">{t("users")}</Link>}
               <span className="ml-auto" />
               <form action={setLocale.bind(null, locale === "sv" ? "en" : "sv")}>

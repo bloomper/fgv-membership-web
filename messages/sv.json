@@ -1,6 +1,16 @@
 {
-  "app": { "name": "Medlemskap" },
-  "nav": { "users": "Användare", "login": "Logga in", "logout": "Logga ut", "register": "Skapa konto" },
+  "app": {
+    "name": "Medlemskap"
+  },
+  "nav": {
+    "users": "Användare",
+    "login": "Logga in",
+    "logout": "Logga ut",
+    "register": "Skapa konto",
+    "membership": "Mitt medlemskap",
+    "payments": "Betalningar",
+    "fees": "Avgifter"
+  },
   "home": {
     "title": "Medlemskap",
     "intro": "FGV:s medlemskap och användarkonton. Logga in eller skapa ett konto.",
@@ -39,7 +49,12 @@
     "search": "Sök namn eller e-post",
     "status": "Status",
     "allStatuses": "Alla",
-    "statuses": { "PENDING": "Väntar på godkännande", "ACTIVE": "Aktiv", "DEACTIVATED": "Avaktiverad", "UNVERIFIED": "E-post ej bekräftad" },
+    "statuses": {
+      "PENDING": "Väntar på godkännande",
+      "ACTIVE": "Aktiv",
+      "DEACTIVATED": "Avaktiverad",
+      "UNVERIFIED": "E-post ej bekräftad"
+    },
     "filter": "Filtrera",
     "name": "Namn",
     "email": "E-post",
@@ -68,5 +83,87 @@
     "rejectSubmit": "Avvisa och ta bort kontot",
     "confirmReject": "Ta bort kontot?"
   },
-  "errors": { "forbidden": "Du har inte behörighet till den här sidan." }
+  "errors": {
+    "forbidden": "Du har inte behörighet till den här sidan."
+  },
+  "membership": {
+    "title": "Mitt medlemskap",
+    "notLinked": "Ditt konto är inte kopplat till någon spexare i registret än, så det finns inget medlemskap att visa. Kontakta styrelsen.",
+    "memberships": "Medlemskap",
+    "none": "Du har inga medlemskap än.",
+    "lifetimeFrom": "Livstid från {year}",
+    "pay": "Betala medlemsavgift",
+    "waiting": "Väntar på betalning",
+    "status": {
+      "PENDING": "Ej betalt",
+      "REPORTED": "Väntar på bekräftelse",
+      "PAID": "Betalt",
+      "WAIVED": "Beviljat",
+      "CANCELLED": "Avbrutet"
+    },
+    "requestStatus": {
+      "OPEN": "Ej betalt",
+      "REPORTED": "Väntar på bekräftelse",
+      "MATCHED": "Betalt",
+      "CANCELLED": "Avbrutet"
+    }
+  },
+  "pay": {
+    "title": "Betala medlemsavgift",
+    "intro": "Välj avgift för varje år du vill betala för, eller engångsavgiften för livstidsmedlemskap.",
+    "noFees": "Inga avgifter är öppna för betalning just nu.",
+    "forLife": "livstidsmedlemskap",
+    "lifeGroup": "Livstidsmedlemskap",
+    "total": "Summa",
+    "submit": "Gå vidare till betalning",
+    "payTitle": "Betala din medlemsavgift",
+    "lifeFrom": "Livstid från {year}",
+    "amount": "Belopp",
+    "reference": "Referens",
+    "bankAccount": "Bankkonto",
+    "keepReference": "Behåll referensen oförändrad i meddelandet. Den gör att kassören hittar din betalning.",
+    "openSwish": "Öppna Swish",
+    "qrAlt": "Swish-QR-kod",
+    "iHavePaid": "Jag har betalat",
+    "paidBy": "Vem betalade, om det var någon annan",
+    "paidByHint": "T.ex. din sambo",
+    "reported": "Tack! Vi bekräftar när kassören har hittat din betalning.",
+    "waitingForConfirmation": "Väntar på bekräftelse: du har sagt att du har betalat. Du får ett mejl när kassören har hittat betalningen.",
+    "confirmed": "Din betalning är bekräftad. Tack!",
+    "cancelled": "Den här begäran har avbrutits.",
+    "back": "Tillbaka till mitt medlemskap"
+  },
+  "treasurer": {
+    "title": "Betalningar",
+    "intro": "Begäran som väntar på betalning. Registrera en betalning när du har sett pengarna, på banken eller i Swish; betalaren får ett kvitto och medlemskapet räknas.",
+    "none": "Inget väntar på betalning.",
+    "lifeFrom": "livstid från {year}",
+    "status": {
+      "OPEN": "Ej betalt",
+      "REPORTED": "Betalaren säger sig ha betalat"
+    },
+    "paidBy": "betalat av {name}",
+    "date": "Datum",
+    "amount": "Belopp (kr)",
+    "how": "Hur",
+    "note": "Anteckning",
+    "bank": "Banköverföring",
+    "cash": "Kontant",
+    "record": "Registrera betalning",
+    "cancel": "Avbryt begäran",
+    "confirmCancel": "Avbryta begäran och dess medlemskap?"
+  },
+  "fees": {
+    "title": "Avgifter",
+    "intro": "Vad ett medlemskap kostar för ett år, eller engångsavgiften för livstidsmedlemskap. Utgångna avgifter erbjuds inte medlemmar men finns kvar på det som betalats.",
+    "year": "År",
+    "lifetime": "Livstid",
+    "nameSv": "Namn (svenska)",
+    "nameEn": "Namn (engelska)",
+    "amount": "Belopp (kr)",
+    "save": "Spara",
+    "retire": "Ta ur bruk",
+    "restore": "Erbjud igen",
+    "add": "Lägg till avgift"
+  }
 }
