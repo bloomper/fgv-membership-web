@@ -56,8 +56,8 @@ export async function getUser(token: string, id: string) {
 
 export const mutations = {
   setUserEnabled: `mutation ($id: ID!, $enabled: Boolean!) { setUserEnabled(id: $id, enabled: $enabled) { id } }`,
-  setApplicationAccess: `mutation ($userId: ID!, $clientId: String!, $role: String) { setApplicationAccess(userId: $userId, clientId: $clientId, role: $role) { clientId } }`,
-  rejectUser: `mutation ($id: ID!, $message: String) { rejectUser(id: $id, message: $message) }`,
+  setApplicationAccess: `mutation ($userId: ID!, $clientId: String!, $role: String, $notify: Boolean) { setApplicationAccess(userId: $userId, clientId: $clientId, role: $role, notify: $notify) { clientId } }`,
+  rejectUser: `mutation ($id: ID!, $message: String, $notify: Boolean) { rejectUser(id: $id, message: $message, notify: $notify) }`,
   resendVerification: `mutation ($id: ID!) { resendVerification(id: $id) }`,
   sendSetPasswordEmail: `mutation ($id: ID!) { sendSetPasswordEmail(id: $id) }`,
   sendPasswordResetEmail: `mutation ($id: ID!) { sendPasswordResetEmail(id: $id) }`,

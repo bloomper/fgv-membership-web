@@ -54,6 +54,7 @@
     "inconsistent": "Rollerna i Keycloak följer inte ordningen. Spara för att rätta till dem.",
     "noAccess": "Ingen tillgång",
     "role": "Roll",
+    "notify": "Skicka e-post till användaren om den här ändringen",
     "save": "Spara",
     "account": "Konto",
     "activate": "Aktivera",

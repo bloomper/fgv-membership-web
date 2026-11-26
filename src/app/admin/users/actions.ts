@@ -36,15 +36,20 @@ export async function setEnabled(userId: string, enabled: boolean): Promise<Acti
   return run(userId, mutations.setUserEnabled, { id: userId, enabled });
 }
 
+/** Each update says for itself whether the user is emailed: an unchecked box is not sent by the browser. */
+function notifies(form: FormData): boolean {
+  return form.get("notify") === "on";
+}
+
 /** An empty role takes away all access to the application. */
 export async function setAccess(userId: string, _state: ActionState, form: FormData): Promise<ActionState> {
   const role = String(form.get("role") ?? "");
 
-  return run(userId, mutations.setApplicationAccess, { userId, clientId: String(form.get("clientId")), role: role || null });
+  return run(userId, mutations.setApplicationAccess, { userId, clientId: String(form.get("clientId")), role: role || null, notify: notifies(form) });
 }
 
 export async function reject(userId: string, _state: ActionState, form: FormData): Promise<ActionState> {
-  const result = await run(userId, mutations.rejectUser, { id: userId, message: String(form.get("message") ?? "") || null });
+  const result = await run(userId, mutations.rejectUser, { id: userId, message: String(form.get("message") ?? "") || null, notify: notifies(form) });
 
   if (result?.ok) {
     redirect("/admin/users?status=PENDING");

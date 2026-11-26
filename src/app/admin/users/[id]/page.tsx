@@ -53,7 +53,7 @@ export default async function UserPage({ params }: { params: Promise<{ id: strin
                 <p className="font-medium">{access.name}</p>
                 {!access.consistent && <p className="text-sm text-amber-600">{t("inconsistent")}</p>}
               </div>
-              <AccessForm userId={user.id} access={access} labels={{ none: t("noAccess"), save: t("save"), role: t("role") }} />
+              <AccessForm userId={user.id} access={access} labels={{ none: t("noAccess"), save: t("save"), role: t("role"), notify: t("notify") }} />
             </li>
           ))}
         </ul>
@@ -73,7 +73,7 @@ export default async function UserPage({ params }: { params: Promise<{ id: strin
       {pending && (
         <section className="space-y-3">
           <h2 className="font-semibold">{t("reject")}</h2>
-          <RejectForm userId={user.id} labels={{ message: t("rejectMessage"), submit: t("rejectSubmit"), confirm: t("confirmReject") }} />
+          <RejectForm userId={user.id} labels={{ message: t("rejectMessage"), submit: t("rejectSubmit"), confirm: t("confirmReject"), notify: t("notify") }} />
         </section>
       )}
     </div>

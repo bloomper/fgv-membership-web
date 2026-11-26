@@ -54,6 +54,7 @@
     "inconsistent": "The roles in Keycloak do not follow the ladder. Save to repair them.",
     "noAccess": "No access",
     "role": "Role",
+    "notify": "Send an email to the user about this update",
     "save": "Save",
     "account": "Account",
     "activate": "Activate",
