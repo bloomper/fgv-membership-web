@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
     ];
   },
   turbopack: { root: __dirname },
+  // forbidden() and app/forbidden.tsx: without this a page that refuses a role fails with a server error
+  experimental: { authInterrupts: true },
 };
 
 export default createNextIntlPlugin()(nextConfig);
