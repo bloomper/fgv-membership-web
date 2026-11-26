@@ -11,7 +11,7 @@ export default async function PayPage() {
   const options = fees.map((fee) => ({
     id: fee.id,
     group: fee.lifetime ? "life" : String(fee.year),
-    label: `${locale === "sv" ? fee.nameSv : fee.nameEn}${fee.lifetime ? ` (${t("forLife")})` : fee.year ? ` ${fee.year}` : ""}${fee.kind === "FAMILY" ? ` (${t("family")})` : ""}`,
+    label: `${locale === "sv" ? fee.nameSv : fee.nameEn}${fee.lifetime ? ` (${t("forLife")})` : fee.year ? ` ${fee.year}` : ""}${fee.kind === "FAMILY" ? ` (${t("family")})` : fee.kind === "SUPPORT" ? ` (${t("support")})` : ""}`,
     amount: fee.amount,
     family: fee.kind === "FAMILY",
   }));

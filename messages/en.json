@@ -152,7 +152,9 @@
     "familyNote": "Who is in the family? (names, so that the board can give them the membership)",
     "familyHint": "E.g. my partner Gösta and our children Lisa and Pelle",
     "familyPending": "A family membership: the board will add the family members you named.",
-    "familyCount": "A family membership for {count} people."
+    "familyCount": "A family membership for {count} people.",
+    "support": "support membership",
+    "bankgiro": "Bankgiro"
   },
   "treasurer": {
     "title": "Payments",
@@ -201,14 +203,23 @@
     "kinds": {
       "STANDARD": "Standard",
       "FAMILY": "Family",
-      "LIFETIME": "Life"
+      "LIFETIME": "Life",
+      "SUPPORT": "Support membership"
     }
   },
   "defaults": {
     "title": "Default access",
-    "intro": "The access a new account gets when it is created from a payment made elsewhere, e.g. in the WordPress shop. The highest role you pick on an application comes with the roles below it. Existing accounts are never changed.",
+    "intro": "The access a new account gets when it is created from a payment made elsewhere, e.g. in the WordPress shop. The kind of membership paid decides which set it gets. The highest role you pick on an application comes with the roles below it. Existing accounts are never changed.",
     "none": "No access",
-    "save": "Save"
+    "save": "Save",
+    "profiles": {
+      "MEMBER": "Standard, family and life memberships",
+      "SUPPORT": "Support membership"
+    },
+    "profileHints": {
+      "MEMBER": "Everything members use, except what is left out here.",
+      "SUPPORT": "A support membership gives less: by default User on Spexipedia, Spexflix, Spexgram and Spexify."
+    }
   },
   "bank": {
     "importTitle": "Import a bank statement",
@@ -297,7 +308,8 @@
       "REVIVAL": "Paid by a revival",
       "MIGRATED": "From Spexregister"
     },
-    "family": "family"
+    "family": "family",
+    "support": "support"
   },
   "member": {
     "memberships": "Memberships",
@@ -383,13 +395,14 @@
     "title": "Settings",
     "intro": "Where members pay and who is told about payments. An empty value falls back to what the installation is configured with.",
     "swish": "Swish number",
-    "bank": "Bank account",
+    "bank": "Bank account for direct transfers (may be left empty)",
     "payee": "Payee's name",
     "days": "Remind payers of open requests after (days)",
     "recipients": "Emailed about payments and new registrations",
     "recipientsHint": "One address on each line",
     "save": "Save",
-    "saved": "Saved."
+    "saved": "Saved.",
+    "bankgiro": "Bankgiro (pay with the reference as the message)"
   },
   "maintenance": {
     "title": "Maintenance",

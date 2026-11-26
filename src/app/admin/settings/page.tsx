@@ -13,7 +13,7 @@ export default async function SettingsPage() {
       <h1 className="text-2xl font-semibold">{t("title")}</h1>
       <p className="text-sm">{t("intro")}</p>
       <SettingsForm current={{ ...current, recipients: current.recipients.join("\n") }}
-                    labels={{ swish: t("swish"), bank: t("bank"), payee: t("payee"), days: t("days"), recipients: t("recipients"), recipientsHint: t("recipientsHint"), save: t("save"), saved: t("saved") }} />
+                    labels={{ swish: t("swish"), bankgiro: t("bankgiro"), bank: t("bank"), payee: t("payee"), days: t("days"), recipients: t("recipients"), recipientsHint: t("recipientsHint"), save: t("save"), saved: t("saved") }} />
     </div>
   );
 }

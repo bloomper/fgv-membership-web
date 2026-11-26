@@ -152,7 +152,9 @@
     "familyNote": "Vilka ingår i familjen? (namn, så att styrelsen kan ge dem medlemskapet)",
     "familyHint": "T.ex. min sambo Gösta och våra barn Lisa och Pelle",
     "familyPending": "Ett familjemedlemskap: styrelsen lägger till de familjemedlemmar du angett.",
-    "familyCount": "Ett familjemedlemskap för {count} personer."
+    "familyCount": "Ett familjemedlemskap för {count} personer.",
+    "support": "stödmedlemskap",
+    "bankgiro": "Bankgiro"
   },
   "treasurer": {
     "title": "Betalningar",
@@ -201,14 +203,23 @@
     "kinds": {
       "STANDARD": "Standard",
       "FAMILY": "Familj",
-      "LIFETIME": "Livstid"
+      "LIFETIME": "Livstid",
+      "SUPPORT": "Stödmedlemskap"
     }
   },
   "defaults": {
     "title": "Standardbehörighet",
-    "intro": "Den behörighet ett nytt konto får när det skapas från en betalning som gjorts någon annanstans, t.ex. i WordPress-butiken. Den högsta rollen du väljer för en applikation följer med rollerna under. Befintliga konton ändras aldrig.",
+    "intro": "Den behörighet ett nytt konto får när det skapas från en betalning som gjorts någon annanstans, t.ex. i WordPress-butiken. Vilken sorts medlemskap som betalats avgör vilken uppsättning det får. Den högsta rollen du väljer för en applikation följer med rollerna under. Befintliga konton ändras aldrig.",
     "none": "Ingen behörighet",
-    "save": "Spara"
+    "save": "Spara",
+    "profiles": {
+      "MEMBER": "Standard-, familje- och livstidsmedlemskap",
+      "SUPPORT": "Stödmedlemskap"
+    },
+    "profileHints": {
+      "MEMBER": "Allt som medlemmar använder, utom det som lämnas utanför här.",
+      "SUPPORT": "Ett stödmedlemskap ger mindre: som standard Användare i Spexipedia, Spexflix, Spexgram och Spexify."
+    }
   },
   "bank": {
     "importTitle": "Importera kontoutdrag",
@@ -297,7 +308,8 @@
       "REVIVAL": "Betalt av en nyuppsättning",
       "MIGRATED": "Från Spexregistret"
     },
-    "family": "familj"
+    "family": "familj",
+    "support": "stöd"
   },
   "member": {
     "memberships": "Medlemskap",
@@ -383,13 +395,14 @@
     "title": "Inställningar",
     "intro": "Var medlemmar betalar och vem som får veta om betalningar. Ett tomt värde faller tillbaka på det installationen är konfigurerad med.",
     "swish": "Swish-nummer",
-    "bank": "Bankkonto",
+    "bank": "Bankkonto för direktöverföring (kan lämnas tomt)",
     "payee": "Mottagarens namn",
     "days": "Påminn betalare om öppna begäranden efter (dagar)",
     "recipients": "Får mejl om betalningar och nya registreringar",
     "recipientsHint": "En adress på varje rad",
     "save": "Spara",
-    "saved": "Sparat."
+    "saved": "Sparat.",
+    "bankgiro": "Bankgiro (betala med referensen som meddelande)"
   },
   "maintenance": {
     "title": "Underhåll",

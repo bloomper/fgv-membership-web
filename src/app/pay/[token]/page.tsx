@@ -6,7 +6,7 @@ import { LinkActions } from "./link-actions";
 
 type Page = {
   reference: string; amount: number; paid: number; status: "OPEN" | "REPORTED" | "MATCHED" | "CANCELLED"; years: number[];
-  swishNumber: string | null; bankAccount: string | null; swishLink: string | null; qr: string | null; optedOut: boolean;
+  swishNumber: string | null; bankgiro: string | null; bankAccount: string | null; swishLink: string | null; qr: string | null; optedOut: boolean;
 };
 
 /** A personal link: the payment request and nothing else, for people who pay without logging in. */
@@ -39,6 +39,7 @@ export default async function PersonalLinkPage({ params }: { params: Promise<{ t
             <dt>{t("amount")}</dt><dd className="font-semibold">{format.number(page.amount - page.paid)} kr</dd>
             <dt>{t("reference")}</dt><dd className="font-mono font-semibold">{page.reference}</dd>
             {page.swishNumber && <><dt>Swish</dt><dd>{page.swishNumber}</dd></>}
+            {page.bankgiro && <><dt>{t("bankgiro")}</dt><dd>{page.bankgiro}</dd></>}
             {page.bankAccount && <><dt>{t("bankAccount")}</dt><dd>{page.bankAccount}</dd></>}
           </dl>
           <p className="text-sm">{t("keepReference")}</p>

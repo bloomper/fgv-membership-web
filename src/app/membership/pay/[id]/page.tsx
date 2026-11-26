@@ -27,6 +27,7 @@ export default async function PaymentPage({ params }: { params: Promise<{ id: st
             <dt>{t("amount")}</dt><dd className="font-semibold">{format.number(request.amount)} kr</dd>
             <dt>{t("reference")}</dt><dd className="font-mono font-semibold">{request.reference}</dd>
             {request.payee.swishNumber && <><dt>Swish</dt><dd>{request.payee.swishNumber}</dd></>}
+            {request.payee.bankgiro && <><dt>{t("bankgiro")}</dt><dd>{request.payee.bankgiro}</dd></>}
             {request.payee.bankAccount && <><dt>{t("bankAccount")}</dt><dd>{request.payee.bankAccount}</dd></>}
           </dl>
           <p className="text-sm">{t("keepReference")}</p>

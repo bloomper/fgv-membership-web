@@ -3,8 +3,8 @@
 import { useActionState, useTransition } from "react";
 import { retireFee, saveFee, type FeeState } from "./actions";
 
-type Fee = { id: string; year: number | null; kind: "STANDARD" | "FAMILY" | "LIFETIME"; nameSv: string; nameEn: string; amount: number };
-type Labels = { year: string; kind: string; kinds: Record<"STANDARD" | "FAMILY" | "LIFETIME", string>; nameSv: string; nameEn: string; amount: string; save: string };
+type Fee = { id: string; year: number | null; kind: "STANDARD" | "FAMILY" | "LIFETIME" | "SUPPORT"; nameSv: string; nameEn: string; amount: number };
+type Labels = { year: string; kind: string; kinds: Record<"STANDARD" | "FAMILY" | "LIFETIME" | "SUPPORT", string>; nameSv: string; nameEn: string; amount: string; save: string };
 
 export function FeeForm({ fee, labels }: { fee: Fee | null; labels: Labels }) {
   const [state, action, pending] = useActionState<FeeState, FormData>(saveFee.bind(null, fee?.id ?? null), null);

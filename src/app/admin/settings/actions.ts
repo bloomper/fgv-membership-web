@@ -13,7 +13,7 @@ export async function save(_state: SettingsState, form: FormData): Promise<Setti
   try {
     await graphql(viewer.accessToken, adminMutations.saveSettings, {
       input: {
-        swishNumber: String(form.get("swishNumber") ?? ""), bankAccount: String(form.get("bankAccount") ?? ""), payeeName: String(form.get("payeeName") ?? ""),
+        swishNumber: String(form.get("swishNumber") ?? ""), bankgiro: String(form.get("bankgiro") ?? ""), bankAccount: String(form.get("bankAccount") ?? ""), payeeName: String(form.get("payeeName") ?? ""),
         reminderDays: Number(form.get("reminderDays")), recipients: String(form.get("recipients") ?? ""),
       },
     });

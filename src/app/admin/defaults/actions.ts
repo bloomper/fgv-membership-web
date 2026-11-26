@@ -8,11 +8,11 @@ import { requireRole } from "@/lib/guard";
 export type DefaultsState = { ok: boolean; message?: string } | null;
 
 /** An empty role means no access to the application. */
-export async function saveDefault(clientId: string, _state: DefaultsState, form: FormData): Promise<DefaultsState> {
+export async function saveDefault(profile: string, clientId: string, _state: DefaultsState, form: FormData): Promise<DefaultsState> {
   const viewer = await requireRole("ADMIN", "/admin/defaults");
 
   try {
-    await graphql(viewer.accessToken, defaultAccessMutations.setDefaultAccess, { clientId, role: String(form.get("role") ?? "") || null });
+    await graphql(viewer.accessToken, defaultAccessMutations.setDefaultAccess, { profile, clientId, role: String(form.get("role") ?? "") || null });
   } catch (error) {
     return { ok: false, message: error instanceof GraphQLRequestError ? error.message : "Error" };
   }

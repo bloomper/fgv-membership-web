@@ -3,8 +3,8 @@
 import { useActionState } from "react";
 import { saveDefault, type DefaultsState } from "./actions";
 
-export function DefaultForm({ entry, labels }: { entry: { clientId: string; ladder: string[]; role: string | null }; labels: { none: string; save: string } }) {
-  const [state, action, pending] = useActionState<DefaultsState, FormData>(saveDefault.bind(null, entry.clientId), null);
+export function DefaultForm({ profile, entry, labels }: { profile: string; entry: { clientId: string; ladder: string[]; role: string | null }; labels: { none: string; save: string } }) {
+  const [state, action, pending] = useActionState<DefaultsState, FormData>(saveDefault.bind(null, profile, entry.clientId), null);
 
   return (
     <form action={action} className="flex items-center gap-2">
