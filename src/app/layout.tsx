@@ -1,62 +1,65 @@
-import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getTranslations } from "next-intl/server";
-import Link from "next/link";
-import { getViewer } from "@/lib/session";
-import { hasRole } from "@/lib/roles";
-import { setLocale } from "@/app/actions";
+import type {Metadata} from "next";
+import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
+import {cookies} from "next/headers";
+import React, {Suspense} from "react";
+import Provider from "@/app/provider.client";
+import {normalizeLocale} from "@/utils/utils.server";
+import {Spinner} from "@/components/ui/spinner";
+import {Umami} from "@/components/umami";
+import enMessages from "../../messages/en.json";
+import svMessages from "../../messages/sv.json";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("app");
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
+});
 
-  return { title: { default: t("name"), template: `%s – ${t("name")}` } };
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
+
+async function RootProvider({children}: { children: React.ReactNode }) {
+    const store = await cookies();
+    const locale = normalizeLocale(store.get("locale")?.value);
+    const messages = (await import(`../../messages/${locale}.json`)).default;
+
+    return (
+        <Provider locale={locale} messages={messages}>
+            {children}
+        </Provider>
+    );
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = await getLocale();
-  const t = await getTranslations("nav");
-  const viewer = await getViewer();
+const metaByLocale: Record<string, { title: string; description: string }> = {
+    en: enMessages.Meta,
+    sv: svMessages.Meta,
+};
 
-  return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider>
-          <header className="border-b border-zinc-200 dark:border-zinc-800">
-            <nav className="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3 text-sm">
-              <Link href="/" className="font-semibold">Medlemskap</Link>
-              {viewer && <Link href="/membership">{t("membership")}</Link>}
-              {viewer && hasRole(viewer.roles, "BOARD") && <Link href="/board/members">{t("members")}</Link>}
-              {viewer && hasRole(viewer.roles, "BOARD") && <Link href="/board/applications">{t("applications")}</Link>}
-              {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/payments">{t("payments")}</Link>}
-              {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/transactions">{t("bank")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/fees">{t("fees")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/defaults">{t("defaults")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/bank-formats">{t("bankFormats")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/settings">{t("settings")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/maintenance">{t("maintenance")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/audit">{t("audit")}</Link>}
-              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/users">{t("users")}</Link>}
-              <span className="ml-auto" />
-              <form action={setLocale.bind(null, locale === "sv" ? "en" : "sv")}>
-                <button className="underline" type="submit">{locale === "sv" ? "English" : "Svenska"}</button>
-              </form>
-              {viewer ? (
-                <>
-                  <span>{viewer.name}</span>
-                  <a href="/api/auth/sign-out-and-back">{t("logout")}</a>
-                </>
-              ) : (
-                <>
-                  <a href="/api/auth/login">{t("login")}</a>
-                  <Link href="/register">{t("register")}</Link>
-                </>
-              )}
-            </nav>
-          </header>
-          <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  );
+const defaultLocale = normalizeLocale(undefined);
+
+export const metadata: Metadata = metaByLocale[defaultLocale] ?? metaByLocale.sv;
+
+export default async function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+    return (
+        <html lang={defaultLocale} suppressHydrationWarning>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Suspense
+            fallback={
+                <div className="fixed inset-0 flex items-center justify-center">
+                    <Spinner className="size-8"/>
+                </div>
+            }
+        >
+            <RootProvider>
+                {children}
+            </RootProvider>
+        </Suspense>
+        <Suspense>
+            <Umami/>
+        </Suspense>
+        </body>
+        </html>
+    );
 }

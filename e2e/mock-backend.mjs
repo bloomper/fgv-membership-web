@@ -126,6 +126,38 @@ function handleGraphql(raw, res, authorization) {
         data.members = [{membershipId: "m1", spexareId: "sp-1", name: "Greta Test", type: "FGV", year: 2026, lifetime: false, status: "PAID", how: "SWISH", note: null,
             optedOut: false, wasMemberLastYear: true, family: false, support: false}];
     }
+    if (query.includes("bankFormats")) {
+        data.bankFormats = [{id: "bf-1", name: "Swedbank", charset: "UTF-8", delimiter: ";", headerLines: 1, dateColumn: 1, amountColumn: 2, textColumn: 3, payerColumn: null, dateFormat: "yyyy-MM-dd", decimalComma: true}];
+    }
+    if (query.includes("unmatchedTransactions")) {
+        data.unmatchedTransactions = [{id: "tx-1", bookedOn: "2026-11-20", amount: 200, text: "FGV26ABCD", payer: "Greta Test"}];
+    }
+    if (query.includes("transactionSuggestions")) {
+        data.transactionSuggestions = [];
+    }
+    if (query.includes("maintenanceJobs")) {
+        data.maintenanceJobs = [{name: "PAYMENT_REMINDERS", description: "Remind payers of open requests", lastRun: "2026-11-25T03:50:00Z", lastResult: "0 handled"}];
+    }
+    if (query.includes("auditLog")) {
+        data.auditLog = [{at: "2026-11-25T10:00:00Z", actor: "user-1", actorName: "Greta Test", action: "ACCESS_CHANGED", subject: "user-2", detail: "fgv-membership: USER"}];
+    }
+    if (query.includes("defaultAccess(")) {
+        data.defaultAccess = [{clientId: "fgv-membership", name: "Membership", ladder: ["USER", "BOARD", "TREASURER", "ADMIN"], role: "USER"}];
+    }
+    if (query.includes("membershipApplications")) {
+        data.membershipApplications = [{id: "app-1", applicantName: "Sture Sökande", applicantEmail: "sture@example.org", text: "Spexade 1998", status: "PENDING", createdAt: "2026-11-20T10:00:00Z"}];
+    }
+    if (query.includes("memberDetail(")) {
+        data.memberDetail = {spexare: {id: "sp-1", firstName: "Greta", lastName: "Test", email: "greta@example.org"}, optedOut: false,
+            memberships: [{id: "m1", year: 2026, lifetime: false, status: "PAID", how: "SWISH", note: null}], requests: [], emails: []};
+    }
+    if (query.includes("spexareSearch")) {
+        data.spexareSearch = [{id: "sp-1", firstName: "Greta", lastName: "Test", email: "greta@example.org"}];
+    }
+    if (query.includes("user(")) {
+        data.user = {id: "u1", email: "greta@example.org", displayName: "Greta Test", enabled: true, emailVerified: true, status: "ACTIVE", createdAt: "2026-11-01T10:00:00Z",
+            registrationMessage: null, access: [{clientId: "fgv-membership", name: "Membership", ladder: ["USER", "BOARD", "TREASURER", "ADMIN"], highest: "ADMIN", consistent: true}]};
+    }
     if (query.includes("users(")) {
         data.users = {total: 1, items: [{id: "u1", email: "greta@example.org", displayName: "Greta Test", firstName: "Greta", lastName: "Test", locale: "sv", enabled: true,
             emailVerified: true, status: "ACTIVE", createdAt: null, registrationMessage: null}]};

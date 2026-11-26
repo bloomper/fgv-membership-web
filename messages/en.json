@@ -1,33 +1,128 @@
 {
-  "app": {
-    "name": "Membership"
+  "Meta": {
+    "title": "Membership",
+    "description": "FGV's memberships and user accounts"
   },
-  "nav": {
-    "users": "Users",
+  "Common": {
     "login": "Log in",
     "logout": "Log out",
+    "loggedOut": "You are logged out",
+    "save": "Save",
+    "cancel": "Cancel",
+    "add": "Add",
+    "remove": "Remove",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "reload": "Reload",
+    "chooseFile": "Choose file…",
+    "noFileChosen": "No file chosen",
+    "confirm": "Confirm",
+    "loading": "Loading…",
+    "saved": "Saved",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "myFgvAccount": "My FGV account",
+    "toggle": "Toggle",
+    "search": "Search",
+    "selected": "{count, plural, =1 {# selected} other {# selected}}",
+    "reset": "Reset",
+    "resetFilters": "Reset filters",
+    "noDataHeading": "No data found",
+    "noDataDescription": "Couldn't find any data at the moment. Please check back later.",
+    "noFilterMatchHeading": "No data found",
+    "noFilterMatchDescription": "Try adjusting your filters or search query to find what you're looking for.",
+    "rowsPerPage": "Rows per page",
+    "pageOf": "Page {page} of {pages}",
+    "firstPage": "First page",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "lastPage": "Last page",
+    "clearSearch": "Clear search",
+    "datePlaceholder": "YYYY-MM-DD",
+    "pickDate": "Pick a date",
+    "validation": {
+      "valueMissing": "Please fill in this field.",
+      "selectMissing": "Please select an option.",
+      "checkboxMissing": "Please tick this box to continue.",
+      "fileMissing": "Please choose a file.",
+      "email": "Please enter a valid email address.",
+      "url": "Please enter a valid web address.",
+      "number": "Please enter a number.",
+      "format": "Please enter a value in the right format.",
+      "patternWithHint": "Please enter a value in the right format: {hint}",
+      "tooShort": "Please enter at least {min} characters.",
+      "tooLong": "Please enter at most {max} characters.",
+      "rangeUnderflow": "The value must be at least {min}.",
+      "rangeOverflow": "The value must be at most {max}.",
+      "step": "Please enter a valid value."
+    },
     "register": "Create account",
-    "membership": "My membership",
-    "payments": "Payments",
-    "fees": "Fees",
-    "defaults": "Default access",
-    "bank": "Bank",
-    "bankFormats": "Bank formats",
-    "members": "Members",
-    "applications": "Applications",
-    "settings": "Settings",
-    "maintenance": "Maintenance",
-    "audit": "Audit log"
+    "back": "Back",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "send": "Send",
+    "kr": "{amount} kr"
   },
-  "home": {
+  "Header": {
+    "toggleLanguage": "Change language",
+    "toggleTheme": "Change theme",
+    "showMenu": "Show menu"
+  },
+  "Sidebar": {
+    "hideMenu": "Hide menu",
+    "showMenu": "Show menu"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "text": "An unexpected error occurred.",
+    "retry": "Try again"
+  },
+  "LoginError": {
+    "title": "Login failed",
+    "text": "Something went wrong while logging in. Please try again.",
+    "retry": "Try again"
+  },
+  "AppSwitcher": {
+    "heading": "Switch application",
+    "spexregister": "Spexregister",
+    "spexflix": "Spexflix",
+    "spexify": "Spexify",
+    "spexgram": "Spexgram",
+    "spexipedia": "Spexipedia",
+    "archive": "Spexarkiv",
+    "membership": "Membership",
+    "revival": "Nyuppsättning"
+  },
+  "CommandPalette": {
+    "title": "Command palette",
+    "description": "Jump to a page or start an action",
+    "open": "Open the command palette",
+    "hint": "Jump to…",
+    "placeholder": "Jump to page or action…",
+    "navigation": "Navigation",
+    "empty": "No matches"
+  },
+  "Home": {
     "title": "Membership",
-    "intro": "FGV's memberships and user accounts. Log in or create an account.",
+    "intro": "Here you see your membership, pay the membership fee and, if you are on the board, handle the members.",
     "welcome": "Welcome, {name}!",
     "manageUsers": "Manage users",
     "login": "Log in",
-    "register": "Create account"
+    "register": "Create account",
+    "mustBeLoggedIn": "Log in or create an account to use Membership. FGV's memberships and user accounts are here.",
+    "membershipTitle": "My membership",
+    "membershipText": "See your memberships and pay the membership fee.",
+    "boardTitle": "The board",
+    "boardText": "Members, applications and reminders.",
+    "treasurerTitle": "Treasurer",
+    "treasurerText": "Payments, bank statements and transactions to match.",
+    "adminTitle": "Administration",
+    "adminText": "Users and their access, fees and settings."
   },
-  "register": {
+  "Register": {
     "title": "Create account",
     "intro": "You will get an email with a link where you confirm your address and choose a password. After that an administrator gives you access to FGV's applications.",
     "firstName": "First name",
@@ -45,14 +140,14 @@
       "unavailable": "The account could not be created right now. Please try again later."
     }
   },
-  "verify": {
+  "Verify": {
     "title": "Confirm email address",
     "explain": "Confirm your email address. You will then get a message where you choose a password.",
     "confirm": "Confirm",
     "done": "Thank you! Your address is confirmed. You will now get a message where you choose a password. After that an administrator gives you access, and you get a message when it is done.",
     "invalid": "The link no longer works. Create the account again if it has expired."
   },
-  "admin": {
+  "Users": {
     "users": "Users",
     "search": "Search name or email",
     "status": "Status",
@@ -89,12 +184,12 @@
     "reject": "Reject",
     "rejectMessage": "Message to the user (optional)",
     "rejectSubmit": "Reject and delete the account",
-    "confirmReject": "Delete the account?"
+    "confirmReject": "Delete the account?",
+    "title": "Users",
+    "saved": "Saved.",
+    "done": "Done."
   },
-  "errors": {
-    "forbidden": "You are not allowed to see this page."
-  },
-  "membership": {
+  "Membership": {
     "title": "My membership",
     "notLinked": "Your account is not linked to a spexare in the register yet, so there is no membership to show. Contact the board.",
     "memberships": "Memberships",
@@ -122,9 +217,10 @@
     "applyName": "Your name",
     "applyText": "How have you been part of the spex?",
     "applyHint": "E.g. which spex and years",
-    "applySubmit": "Send the application"
+    "applySubmit": "Send the application",
+    "applied": "The application has been sent."
   },
-  "pay": {
+  "Pay": {
     "title": "Pay a membership fee",
     "intro": "Pick the fee for each year you want to pay for, or the one-time fee for a life membership.",
     "noFees": "No fees are open for payment right now.",
@@ -156,7 +252,7 @@
     "support": "support membership",
     "bankgiro": "Bankgiro"
   },
-  "treasurer": {
+  "Treasurer": {
     "title": "Payments",
     "intro": "Requests that wait for payment. Record a payment when you have seen the money, in the bank or in Swish; the payer gets a receipt and the membership counts.",
     "none": "Nothing waits for payment.",
@@ -185,9 +281,12 @@
     "exportPayments": "The year's payments for the bookkeeping (Excel)",
     "family": "Family membership",
     "familyIncomplete": "family members not added yet",
-    "attachFamily": "Add family members"
+    "attachFamily": "Add family members",
+    "recordedDone": "The payment has been recorded.",
+    "cancelled": "The request has been cancelled.",
+    "undone": "The payment has been undone."
   },
-  "fees": {
+  "Fees": {
     "title": "Fees",
     "intro": "What a membership costs for a year, or the one-time fee for a life membership. Retired fees are not offered to members but stay on what was paid.",
     "year": "Year",
@@ -205,9 +304,10 @@
       "FAMILY": "Family",
       "LIFETIME": "Life",
       "SUPPORT": "Support membership"
-    }
+    },
+    "saved": "The fee has been saved."
   },
-  "defaults": {
+  "Defaults": {
     "title": "Default access",
     "intro": "The access a new account gets when it is created from a payment made elsewhere, e.g. in an external shop. The kind of membership paid decides which set it gets. The highest role you pick on an application comes with the roles below it. Existing accounts are never changed.",
     "none": "No access",
@@ -219,9 +319,10 @@
     "profileHints": {
       "MEMBER": "Everything members use, except what is left out here.",
       "SUPPORT": "A support membership gives less: by default User on Spexipedia, Spexflix, Spexgram and Spexify."
-    }
+    },
+    "saved": "Saved."
   },
-  "bank": {
+  "Bank": {
     "importTitle": "Import a bank statement",
     "importIntro": "Upload the account's transactions as a CSV file from the bank. Only incoming transactions are kept, and the same transaction is never imported twice, so overlapping files are fine. Importing is optional: payments can always be recorded by hand.",
     "noFormats": "No bank format is described yet. An administrator describes the bank's file under Bank formats.",
@@ -246,9 +347,12 @@
     "dismiss": "Not a membership payment",
     "confirmDismiss": "Dismiss this transaction? Its text and payer are deleted.",
     "reportedWithoutMatch": "Reported payments waiting to be found, oldest first",
-    "none": "None."
+    "none": "None.",
+    "matched": "The transaction has been matched.",
+    "dismissed": "The transaction has been dismissed.",
+    "imported": "The statement has been imported."
   },
-  "formats": {
+  "Formats": {
     "title": "Bank formats",
     "intro": "Describe each bank's CSV once: which columns hold the date, the amount, the text and the payer (counted from 1), how dates are written and what the file's character set is. A change of bank is a new format.",
     "name": "Name",
@@ -264,9 +368,11 @@
     "save": "Save",
     "delete": "Delete",
     "confirmDelete": "Delete this format?",
-    "add": "Add a bank format"
+    "add": "Add a bank format",
+    "saved": "The bank format has been saved.",
+    "deleted": "The bank format has been deleted."
   },
-  "members": {
+  "Members": {
     "title": "Members",
     "year": "Year",
     "status": "Status",
@@ -311,7 +417,7 @@
     "family": "family",
     "support": "support"
   },
-  "member": {
+  "Member": {
     "memberships": "Memberships",
     "requests": "Payment requests",
     "emails": "Emails sent",
@@ -346,9 +452,12 @@
     "amount": "Amount (kr)",
     "how": "How",
     "recordSubmit": "Record",
-    "back": "Back to the members"
+    "back": "Back to the members",
+    "granted": "The membership has been granted.",
+    "recorded": "The payment has been recorded.",
+    "fees": "Fees"
   },
-  "renewals": {
+  "Renewals": {
     "title": "Renewal reminders",
     "intro": "Last year's members who have nothing for the year yet, are not members for life and have not asked to be left alone get an email with a payment request and a personal link.",
     "year": "Year",
@@ -361,14 +470,14 @@
     "confirm": "Send {count, plural, one {# reminder} other {# reminders}}?",
     "done": "Sent: {sent}. Left out (no email address, or it failed): {skipped}."
   },
-  "personal": {
+  "Personal": {
     "optOut": "Don't remind me again",
     "optedOut": "You will not be reminded again.",
     "account": "You can also",
     "login": "log in",
     "register": "create an account"
   },
-  "family": {
+  "Family": {
     "title": "Family: {reference}",
     "saidByPayer": "The payer said",
     "members": "People with the membership",
@@ -376,9 +485,10 @@
     "searchName": "Search by name",
     "search": "Search",
     "addSelected": "Add the selected",
-    "back": "Back to the payments"
+    "back": "Back to the payments",
+    "added": "The family members have been added."
   },
-  "applications": {
+  "Applications": {
     "title": "Applications for membership",
     "intro": "Pick the spexare in Spexregister that the applicant is, or accept without picking one to create a new spexare from the account's name and email address. The applicant is told by email.",
     "none": "No applications wait.",
@@ -389,9 +499,11 @@
     "accept": "Accept",
     "message": "Message to the applicant (optional)",
     "reject": "Reject",
-    "confirmReject": "Reject this application?"
+    "confirmReject": "Reject this application?",
+    "accepted": "The application has been accepted.",
+    "rejected": "The application has been rejected."
   },
-  "settings": {
+  "Settings": {
     "title": "Settings",
     "intro": "Where members pay and who is told about payments. An empty value falls back to what the installation is configured with.",
     "swish": "Swish number",
@@ -404,14 +516,14 @@
     "saved": "Saved.",
     "bankgiro": "Bankgiro (pay with the reference as the message)"
   },
-  "maintenance": {
+  "Maintenance": {
     "title": "Maintenance",
     "intro": "Jobs that run by themselves on a schedule. Run one now if you need to.",
     "last": "Last run {at}: {result}",
     "never": "Has not run yet.",
     "run": "Run now"
   },
-  "audit": {
+  "Audit": {
     "title": "Audit log",
     "intro": "Who changed what, newest first, including changes to users' access.",
     "when": "When",
@@ -421,5 +533,82 @@
     "detail": "Details",
     "newer": "Newer",
     "older": "Older"
+  },
+  "Nav": {
+    "home": "Home",
+    "membership": "My membership",
+    "board": "The board",
+    "treasurer": "Treasurer",
+    "admin": "Administration",
+    "members": "Members",
+    "applications": "Applications",
+    "renewals": "Reminders",
+    "payments": "Payments",
+    "bank": "Bank",
+    "import": "Import a bank statement",
+    "users": "Users",
+    "fees": "Fees",
+    "defaults": "Default access",
+    "bankFormats": "Bank formats",
+    "settings": "Settings",
+    "maintenance": "Maintenance",
+    "audit": "Audit log"
+  },
+  "NoAccess": {
+    "title": "You do not have access",
+    "text": "Your FGV account ({email}) does not have access to Membership. Ask an administrator for access, or log out and log in with another account.",
+    "logout": "Log out"
+  },
+  "Forbidden": {
+    "title": "You do not have permission",
+    "text": "You do not have permission to see this page. Ask an administrator if you need it.",
+    "home": "To the home page"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "text": "The page does not exist, or you do not have access to it.",
+    "home": "To the home page"
+  },
+  "Errors": {
+    "CONFLICT": "Someone else has changed this. Reload and try again.",
+    "FORBIDDEN": "You are not allowed to do that.",
+    "NOT_FOUND": "What you are looking for does not exist.",
+    "BAD_REQUEST": "The details are not valid.",
+    "SPEXREGISTER_UNAVAILABLE": "Spexregister is temporarily unavailable. Try again in a moment.",
+    "UNAUTHORIZED": "You are not logged in.",
+    "INTERNAL_ERROR": "Something went wrong. Please try again.",
+    "DIRECTORY_UNAVAILABLE": "The FGV accounts cannot be reached at the moment. Try again in a moment."
+  },
+  "About": {
+    "title": "About",
+    "heading": "About Membership",
+    "description": "Membership is provided by FGV for memberships and membership fees, and for user accounts in FGV's applications.",
+    "behindTheScenes": "Behind the scenes",
+    "feedback": "Feedback",
+    "feedbackDescription": "We value your opinion. Do you have suggestions for improvements or have you found a bug? Get in touch at {email}.",
+    "feedbackAction": "Send an email"
+  },
+  "Support": {
+    "title": "Support",
+    "heading": "How can we help?",
+    "description": "Have you found a technical fault, or are you having trouble logging in or paying the membership fee? We are happy to help you sort it out.",
+    "contact": "Contact support",
+    "contactDescription": "Describe your problem as clearly as possible. Get in touch at {email}.",
+    "contactAction": "Send a support request"
+  },
+  "Validation": {
+    "required": "Fill in this field.",
+    "tooLong": "Too many characters.",
+    "messageTooLong": "At most 500 characters.",
+    "feeRequired": "Pick at least one fee.",
+    "personRequired": "Pick at least one person.",
+    "yearInvalid": "Enter a year between 1948 and 2200.",
+    "dateInvalid": "Enter a valid date, YYYY-MM-DD.",
+    "amountInvalid": "Enter an amount in whole kronor, at least 1.",
+    "columnInvalid": "Enter a whole number; columns are counted from 1.",
+    "delimiterInvalid": "Enter a single character.",
+    "daysInvalid": "Enter a number of days between 1 and 60.",
+    "emailInvalid": "Enter a valid email address.",
+    "requestRequired": "Pick at least one request."
   }
 }

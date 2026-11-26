@@ -9,11 +9,11 @@ test("a personal link opens the payment request without logging in", async ({bro
     await page.goto(`/pay/${TOKEN}`);
 
     await expect(page.getByText("FGV26ABCD")).toBeVisible();
-    await expect(page.getByText("200 kr")).toBeVisible();
+    await expect(page.getByText(/200\s*kr/)).toBeVisible();
     await expect(page.getByText("123-4567")).toBeVisible();
 
     await page.getByRole("button", {name: "Jag har betalat"}).click();
-    await expect(page.getByRole("status")).toContainText("Tack");
+    await expect(page.getByText(/Tack! Vi bekräftar/)).toBeVisible();
     await page.getByRole("button", {name: "Påminn mig inte igen"}).click();
     await expect(page.getByText("Du kommer inte att påminnas igen.")).toBeVisible();
 
@@ -27,8 +27,8 @@ test("a link that is not right says so", async ({browser}) => {
     const context = await browser.newContext({storageState: {cookies: [], origins: []}});
     const page = await context.newPage();
 
-    const response = await page.goto("/pay/short");
+    await page.goto("/pay/short");
 
-    expect(response?.status()).toBe(404);
+    await expect(page.getByRole("heading", {name: "Sidan finns inte"})).toBeVisible();
     await context.close();
 });

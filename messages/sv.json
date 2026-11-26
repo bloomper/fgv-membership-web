@@ -1,33 +1,128 @@
 {
-  "app": {
-    "name": "Medlemskap"
+  "Meta": {
+    "title": "Medlemskap",
+    "description": "FGV:s medlemskap och användarkonton"
   },
-  "nav": {
-    "users": "Användare",
+  "Common": {
     "login": "Logga in",
     "logout": "Logga ut",
+    "loggedOut": "Du är utloggad",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "add": "Lägg till",
+    "remove": "Ta bort",
+    "delete": "Radera",
+    "edit": "Redigera",
+    "close": "Stäng",
+    "reload": "Ladda om",
+    "chooseFile": "Välj fil…",
+    "noFileChosen": "Ingen fil vald",
+    "confirm": "Bekräfta",
+    "loading": "Laddar…",
+    "saved": "Sparat",
+    "themeLight": "Ljust",
+    "themeDark": "Mörkt",
+    "themeSystem": "System",
+    "myFgvAccount": "Mitt FGV-konto",
+    "toggle": "Växla",
+    "search": "Sök",
+    "selected": "{count, plural, =1 {# vald} other {# valda}}",
+    "reset": "Återställ",
+    "resetFilters": "Återställ filter",
+    "noDataHeading": "Ingen data hittades",
+    "noDataDescription": "Kunde inte hitta någon data för tillfället. Vänligen kolla senare.",
+    "noFilterMatchHeading": "Ingen data hittades",
+    "noFilterMatchDescription": "Prova att ändra din filtrering eller sökord för att hitta det du letar efter.",
+    "rowsPerPage": "Rader per sida",
+    "pageOf": "Sida {page} av {pages}",
+    "firstPage": "Första sidan",
+    "previousPage": "Föregående sida",
+    "nextPage": "Nästa sida",
+    "lastPage": "Sista sidan",
+    "clearSearch": "Rensa sökningen",
+    "datePlaceholder": "ÅÅÅÅ-MM-DD",
+    "pickDate": "Välj datum",
+    "validation": {
+      "valueMissing": "Fyll i det här fältet.",
+      "selectMissing": "Välj ett alternativ.",
+      "checkboxMissing": "Kryssa i den här rutan för att fortsätta.",
+      "fileMissing": "Välj en fil.",
+      "email": "Ange en giltig e-postadress.",
+      "url": "Ange en giltig webbadress.",
+      "number": "Ange ett tal.",
+      "format": "Ange ett värde i rätt format.",
+      "patternWithHint": "Ange ett värde i rätt format: {hint}",
+      "tooShort": "Ange minst {min} tecken.",
+      "tooLong": "Ange högst {max} tecken.",
+      "rangeUnderflow": "Värdet måste vara minst {min}.",
+      "rangeOverflow": "Värdet får vara högst {max}.",
+      "step": "Ange ett giltigt värde."
+    },
     "register": "Skapa konto",
-    "membership": "Mitt medlemskap",
-    "payments": "Betalningar",
-    "fees": "Avgifter",
-    "defaults": "Standardbehörighet",
-    "bank": "Bank",
-    "bankFormats": "Bankformat",
-    "members": "Medlemmar",
-    "applications": "Ansökningar",
-    "settings": "Inställningar",
-    "maintenance": "Underhåll",
-    "audit": "Granskningslogg"
+    "back": "Tillbaka",
+    "yes": "Ja",
+    "no": "Nej",
+    "none": "Inga",
+    "send": "Skicka",
+    "kr": "{amount} kr"
   },
-  "home": {
+  "Header": {
+    "toggleLanguage": "Byt språk",
+    "toggleTheme": "Byt tema",
+    "showMenu": "Visa menyn"
+  },
+  "Sidebar": {
+    "hideMenu": "Dölj menyn",
+    "showMenu": "Visa menyn"
+  },
+  "Error": {
+    "title": "Något gick fel",
+    "text": "Ett oväntat fel inträffade.",
+    "retry": "Försök igen"
+  },
+  "LoginError": {
+    "title": "Inloggningen misslyckades",
+    "text": "Något gick fel vid inloggningen. Försök igen.",
+    "retry": "Försök igen"
+  },
+  "AppSwitcher": {
+    "heading": "Byt applikation",
+    "spexregister": "Spexregister",
+    "spexflix": "Spexflix",
+    "spexify": "Spexify",
+    "spexgram": "Spexgram",
+    "spexipedia": "Spexipedia",
+    "archive": "Spexarkiv",
+    "membership": "Medlemskap",
+    "revival": "Nyuppsättning"
+  },
+  "CommandPalette": {
+    "title": "Kommandopalett",
+    "description": "Hoppa till en sida eller starta en åtgärd",
+    "open": "Öppna kommandopaletten",
+    "hint": "Hoppa till…",
+    "placeholder": "Hoppa till sida eller åtgärd…",
+    "navigation": "Navigering",
+    "empty": "Inga träffar"
+  },
+  "Home": {
     "title": "Medlemskap",
-    "intro": "FGV:s medlemskap och användarkonton. Logga in eller skapa ett konto.",
+    "intro": "Här ser du ditt medlemskap, betalar medlemsavgiften och, om du är med i styrelsen, hanterar medlemmarna.",
     "welcome": "Välkommen, {name}!",
     "manageUsers": "Hantera användare",
     "login": "Logga in",
-    "register": "Skapa konto"
+    "register": "Skapa konto",
+    "mustBeLoggedIn": "Logga in eller skapa ett konto för att använda Medlemskap. FGV:s medlemskap och användarkonton finns här.",
+    "membershipTitle": "Mitt medlemskap",
+    "membershipText": "Se dina medlemskap och betala medlemsavgiften.",
+    "boardTitle": "Styrelsen",
+    "boardText": "Medlemmar, ansökningar och påminnelser.",
+    "treasurerTitle": "Kassör",
+    "treasurerText": "Betalningar, kontoutdrag och transaktioner som ska matchas.",
+    "adminTitle": "Administration",
+    "adminText": "Användare och deras åtkomst, avgifter och inställningar."
   },
-  "register": {
+  "Register": {
     "title": "Skapa konto",
     "intro": "Du får ett e-postmeddelande med en länk där du bekräftar din adress och väljer lösenord. Därefter ger en administratör dig tillgång till FGV:s applikationer.",
     "firstName": "Förnamn",
@@ -45,14 +140,14 @@
       "unavailable": "Det gick inte att skapa kontot just nu. Försök igen senare."
     }
   },
-  "verify": {
+  "Verify": {
     "title": "Bekräfta e-postadress",
     "explain": "Bekräfta din e-postadress. Du får sedan ett meddelande där du väljer lösenord.",
     "confirm": "Bekräfta",
     "done": "Tack! Din adress är bekräftad. Du får nu ett meddelande där du väljer lösenord. Därefter ger en administratör dig tillgång, och du får ett meddelande när det är klart.",
     "invalid": "Länken fungerar inte längre. Skapa kontot igen om den har gått ut."
   },
-  "admin": {
+  "Users": {
     "users": "Användare",
     "search": "Sök namn eller e-post",
     "status": "Status",
@@ -89,12 +184,12 @@
     "reject": "Avvisa",
     "rejectMessage": "Meddelande till användaren (valfritt)",
     "rejectSubmit": "Avvisa och ta bort kontot",
-    "confirmReject": "Ta bort kontot?"
+    "confirmReject": "Ta bort kontot?",
+    "title": "Användare",
+    "saved": "Sparat.",
+    "done": "Klart."
   },
-  "errors": {
-    "forbidden": "Du har inte behörighet till den här sidan."
-  },
-  "membership": {
+  "Membership": {
     "title": "Mitt medlemskap",
     "notLinked": "Ditt konto är inte kopplat till någon spexare i registret än, så det finns inget medlemskap att visa. Kontakta styrelsen.",
     "memberships": "Medlemskap",
@@ -122,9 +217,10 @@
     "applyName": "Ditt namn",
     "applyText": "Hur har du varit med i spexet?",
     "applyHint": "T.ex. vilka spex och år",
-    "applySubmit": "Skicka ansökan"
+    "applySubmit": "Skicka ansökan",
+    "applied": "Ansökan har skickats."
   },
-  "pay": {
+  "Pay": {
     "title": "Betala medlemsavgift",
     "intro": "Välj avgift för varje år du vill betala för, eller engångsavgiften för livstidsmedlemskap.",
     "noFees": "Inga avgifter är öppna för betalning just nu.",
@@ -156,7 +252,7 @@
     "support": "stödmedlemskap",
     "bankgiro": "Bankgiro"
   },
-  "treasurer": {
+  "Treasurer": {
     "title": "Betalningar",
     "intro": "Begäran som väntar på betalning. Registrera en betalning när du har sett pengarna, på banken eller i Swish; betalaren får ett kvitto och medlemskapet räknas.",
     "none": "Inget väntar på betalning.",
@@ -185,9 +281,12 @@
     "exportPayments": "Årets betalningar till bokföringen (Excel)",
     "family": "Familjemedlemskap",
     "familyIncomplete": "familjemedlemmar ej tillagda än",
-    "attachFamily": "Lägg till familjemedlemmar"
+    "attachFamily": "Lägg till familjemedlemmar",
+    "recordedDone": "Betalningen har registrerats.",
+    "cancelled": "Begäran har avbrutits.",
+    "undone": "Betalningen har tagits tillbaka."
   },
-  "fees": {
+  "Fees": {
     "title": "Avgifter",
     "intro": "Vad ett medlemskap kostar för ett år, eller engångsavgiften för livstidsmedlemskap. Utgångna avgifter erbjuds inte medlemmar men finns kvar på det som betalats.",
     "year": "År",
@@ -205,9 +304,10 @@
       "FAMILY": "Familj",
       "LIFETIME": "Livstid",
       "SUPPORT": "Stödmedlemskap"
-    }
+    },
+    "saved": "Avgiften har sparats."
   },
-  "defaults": {
+  "Defaults": {
     "title": "Standardbehörighet",
     "intro": "Den behörighet ett nytt konto får när det skapas från en betalning som gjorts någon annanstans, t.ex. i en extern butik. Vilken sorts medlemskap som betalats avgör vilken uppsättning det får. Den högsta rollen du väljer för en applikation följer med rollerna under. Befintliga konton ändras aldrig.",
     "none": "Ingen behörighet",
@@ -219,9 +319,10 @@
     "profileHints": {
       "MEMBER": "Allt som medlemmar använder, utom det som lämnas utanför här.",
       "SUPPORT": "Ett stödmedlemskap ger mindre: som standard Användare i Spexipedia, Spexflix, Spexgram och Spexify."
-    }
+    },
+    "saved": "Sparat."
   },
-  "bank": {
+  "Bank": {
     "importTitle": "Importera kontoutdrag",
     "importIntro": "Ladda upp kontots transaktioner som CSV-fil från banken. Bara inkommande transaktioner sparas, och samma transaktion importeras aldrig två gånger, så överlappande filer går bra. Import är frivillig: betalningar kan alltid registreras för hand.",
     "noFormats": "Inget bankformat är beskrivet än. En administratör beskriver bankens fil under Bankformat.",
@@ -246,9 +347,12 @@
     "dismiss": "Ingen medlemsbetalning",
     "confirmDismiss": "Avfärda transaktionen? Dess text och betalare raderas.",
     "reportedWithoutMatch": "Anmälda betalningar som väntar på att hittas, äldst först",
-    "none": "Inga."
+    "none": "Inga.",
+    "matched": "Transaktionen har matchats.",
+    "dismissed": "Transaktionen har avfärdats.",
+    "imported": "Kontoutdraget har importerats."
   },
-  "formats": {
+  "Formats": {
     "title": "Bankformat",
     "intro": "Beskriv varje banks CSV en gång: vilka kolumner som har datum, belopp, text och betalare (räknat från 1), hur datum skrivs och vilken teckenuppsättning filen har. Byter man bank blir det ett nytt format.",
     "name": "Namn",
@@ -264,9 +368,11 @@
     "save": "Spara",
     "delete": "Ta bort",
     "confirmDelete": "Ta bort formatet?",
-    "add": "Lägg till bankformat"
+    "add": "Lägg till bankformat",
+    "saved": "Bankformatet har sparats.",
+    "deleted": "Bankformatet har raderats."
   },
-  "members": {
+  "Members": {
     "title": "Medlemmar",
     "year": "År",
     "status": "Status",
@@ -311,7 +417,7 @@
     "family": "familj",
     "support": "stöd"
   },
-  "member": {
+  "Member": {
     "memberships": "Medlemskap",
     "requests": "Betalningsbegäran",
     "emails": "Skickade mejl",
@@ -346,9 +452,12 @@
     "amount": "Belopp (kr)",
     "how": "Hur",
     "recordSubmit": "Registrera",
-    "back": "Tillbaka till medlemmarna"
+    "back": "Tillbaka till medlemmarna",
+    "granted": "Medlemskapet har beviljats.",
+    "recorded": "Betalningen har registrerats.",
+    "fees": "Avgifter"
   },
-  "renewals": {
+  "Renewals": {
     "title": "Förnyelsepåminnelser",
     "intro": "Förra årets medlemmar som inte har något för året än, inte är medlemmar på livstid och inte bett att få vara i fred får ett mejl med en betalningsbegäran och en personlig länk.",
     "year": "År",
@@ -361,14 +470,14 @@
     "confirm": "Skicka {count, plural, one {# påminnelse} other {# påminnelser}}?",
     "done": "Skickade: {sent}. Utelämnade (saknar mejladress, eller misslyckades): {skipped}."
   },
-  "personal": {
+  "Personal": {
     "optOut": "Påminn mig inte igen",
     "optedOut": "Du kommer inte att påminnas igen.",
     "account": "Du kan också",
     "login": "logga in",
     "register": "skapa ett konto"
   },
-  "family": {
+  "Family": {
     "title": "Familj: {reference}",
     "saidByPayer": "Betalaren angav",
     "members": "Personer med medlemskapet",
@@ -376,9 +485,10 @@
     "searchName": "Sök på namn",
     "search": "Sök",
     "addSelected": "Lägg till de valda",
-    "back": "Tillbaka till betalningarna"
+    "back": "Tillbaka till betalningarna",
+    "added": "Familjemedlemmarna har lagts till."
   },
-  "applications": {
+  "Applications": {
     "title": "Ansökningar om medlemskap",
     "intro": "Välj den spexare i Spexregistret som den sökande är, eller godkänn utan att välja för att skapa en ny spexare från kontots namn och mejladress. Den sökande får veta med mejl.",
     "none": "Inga ansökningar väntar.",
@@ -389,9 +499,11 @@
     "accept": "Godkänn",
     "message": "Meddelande till den sökande (valfritt)",
     "reject": "Avslå",
-    "confirmReject": "Avslå ansökan?"
+    "confirmReject": "Avslå ansökan?",
+    "accepted": "Ansökan har godkänts.",
+    "rejected": "Ansökan har avslagits."
   },
-  "settings": {
+  "Settings": {
     "title": "Inställningar",
     "intro": "Var medlemmar betalar och vem som får veta om betalningar. Ett tomt värde faller tillbaka på det installationen är konfigurerad med.",
     "swish": "Swish-nummer",
@@ -404,14 +516,14 @@
     "saved": "Sparat.",
     "bankgiro": "Bankgiro (betala med referensen som meddelande)"
   },
-  "maintenance": {
+  "Maintenance": {
     "title": "Underhåll",
     "intro": "Jobb som körs av sig själva enligt schema. Kör ett nu om det behövs.",
     "last": "Kördes senast {at}: {result}",
     "never": "Har inte körts än.",
     "run": "Kör nu"
   },
-  "audit": {
+  "Audit": {
     "title": "Granskningslogg",
     "intro": "Vem som ändrade vad, senaste först, även ändringar av användares behörighet.",
     "when": "När",
@@ -421,5 +533,82 @@
     "detail": "Detaljer",
     "newer": "Nyare",
     "older": "Äldre"
+  },
+  "Nav": {
+    "home": "Hem",
+    "membership": "Mitt medlemskap",
+    "board": "Styrelsen",
+    "treasurer": "Kassör",
+    "admin": "Administration",
+    "members": "Medlemmar",
+    "applications": "Ansökningar",
+    "renewals": "Påminnelser",
+    "payments": "Betalningar",
+    "bank": "Bank",
+    "import": "Importera kontoutdrag",
+    "users": "Användare",
+    "fees": "Avgifter",
+    "defaults": "Standardbehörighet",
+    "bankFormats": "Bankformat",
+    "settings": "Inställningar",
+    "maintenance": "Underhåll",
+    "audit": "Granskningslogg"
+  },
+  "NoAccess": {
+    "title": "Du har inte åtkomst",
+    "text": "Ditt FGV-konto ({email}) har inte åtkomst till Medlemskap. Be en administratör om åtkomst, eller logga ut och logga in med ett annat konto.",
+    "logout": "Logga ut"
+  },
+  "Forbidden": {
+    "title": "Du har inte behörighet",
+    "text": "Du har inte behörighet till den här sidan. Be en administratör om du behöver den.",
+    "home": "Till startsidan"
+  },
+  "NotFound": {
+    "title": "Sidan finns inte",
+    "text": "Sidan finns inte, eller så har du inte tillgång till den.",
+    "home": "Till startsidan"
+  },
+  "Errors": {
+    "CONFLICT": "Någon annan har ändrat detta. Ladda om och försök igen.",
+    "FORBIDDEN": "Du har inte behörighet att göra det.",
+    "NOT_FOUND": "Det du söker finns inte.",
+    "BAD_REQUEST": "Uppgifterna är inte giltiga.",
+    "SPEXREGISTER_UNAVAILABLE": "Spexregistret är tillfälligt otillgängligt. Försök igen om en stund.",
+    "UNAUTHORIZED": "Du är inte inloggad.",
+    "INTERNAL_ERROR": "Något gick fel. Försök igen.",
+    "DIRECTORY_UNAVAILABLE": "FGV-kontona går inte att nå just nu. Försök igen om en stund."
+  },
+  "About": {
+    "title": "Om",
+    "heading": "Om Medlemskap",
+    "description": "Medlemskap tillhandahålls av FGV för medlemskap och medlemsavgifter, och för användarkonton i FGV:s applikationer.",
+    "behindTheScenes": "Bakom kulisserna",
+    "feedback": "Tyck till",
+    "feedbackDescription": "Vi värdesätter dina åsikter. Har du förslag på förbättringar eller har du hittat en bugg? Hör gärna av dig på {email}.",
+    "feedbackAction": "Skicka ett e-postmeddelande"
+  },
+  "Support": {
+    "title": "Support",
+    "heading": "Hur kan vi hjälpa till?",
+    "description": "Har du hittat ett tekniskt fel, har problem med att logga in eller att betala medlemsavgiften? Vi hjälper dig gärna att reda ut det.",
+    "contact": "Kontakta supporten",
+    "contactDescription": "Beskriv ditt problem så tydligt som möjligt. Hör av dig till oss på {email}.",
+    "contactAction": "Skicka ett supportärende"
+  },
+  "Validation": {
+    "required": "Fyll i det här fältet.",
+    "tooLong": "För många tecken.",
+    "messageTooLong": "Högst 500 tecken.",
+    "feeRequired": "Välj minst en avgift.",
+    "personRequired": "Välj minst en person.",
+    "yearInvalid": "Ange ett år mellan 1948 och 2200.",
+    "dateInvalid": "Ange ett giltigt datum, ÅÅÅÅ-MM-DD.",
+    "amountInvalid": "Ange ett belopp i hela kronor, minst 1.",
+    "columnInvalid": "Ange ett heltal, kolumner räknas från 1.",
+    "delimiterInvalid": "Ange ett enda tecken.",
+    "daysInvalid": "Ange ett antal dagar mellan 1 och 60.",
+    "emailInvalid": "Ange en giltig e-postadress.",
+    "requestRequired": "Välj minst en begäran."
   }
 }
