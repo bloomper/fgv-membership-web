@@ -15,7 +15,7 @@ export function RecordForm({ requestId, amount, today, labels }: { requestId: st
   return (
     <form action={action} className="flex flex-wrap items-end gap-2">
       <label className="text-sm">{labels.date}<input className="input" type="date" name="paidOn" defaultValue={today} required /></label>
-      <label className="text-sm">{labels.amount}<input className="input w-28" type="number" name="amount" min={amount} defaultValue={amount} required /></label>
+      <label className="text-sm">{labels.amount}<input className="input w-28" type="number" name="amount" min={1} defaultValue={amount} required /></label>
       <label className="text-sm">{labels.how}
         <select className="input" name="how" defaultValue="SWISH">
           {(Object.keys(labels.hows) as (keyof Labels["hows"])[]).map((how) => <option key={how} value={how}>{labels.hows[how]}</option>)}

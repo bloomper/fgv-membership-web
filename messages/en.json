@@ -10,7 +10,9 @@
     "membership": "My membership",
     "payments": "Payments",
     "fees": "Fees",
-    "defaults": "Default access"
+    "defaults": "Default access",
+    "bank": "Bank",
+    "bankFormats": "Bank formats"
   },
   "home": {
     "title": "Membership",
@@ -152,7 +154,14 @@
     "cash": "Cash",
     "record": "Record payment",
     "cancel": "Cancel request",
-    "confirmCancel": "Cancel this request and its memberships?"
+    "confirmCancel": "Cancel this request and its memberships?",
+    "paidSoFar": "{paid} kr paid, {left} kr left",
+    "recorded": "Recorded this year",
+    "undoIntro": "A payment can be undone until the year ends.",
+    "noneRecorded": "No payments recorded yet.",
+    "fromBank": "from the bank",
+    "undo": "Undo",
+    "confirmUndo": "Undo this payment? The request is open again."
   },
   "fees": {
     "title": "Fees",
@@ -172,5 +181,50 @@
     "intro": "The access a new account gets when it is created from a payment made elsewhere, e.g. in the WordPress shop. The highest role you pick on an application comes with the roles below it. Existing accounts are never changed.",
     "none": "No access",
     "save": "Save"
+  },
+  "bank": {
+    "importTitle": "Import a bank statement",
+    "importIntro": "Upload the account's transactions as a CSV file from the bank. Only incoming transactions are kept, and the same transaction is never imported twice, so overlapping files are fine. Importing is optional: payments can always be recorded by hand.",
+    "noFormats": "No bank format is described yet. An administrator describes the bank's file under Bank formats.",
+    "format": "Bank format",
+    "file": "CSV file",
+    "upload": "Import",
+    "read": "Rows read",
+    "added": "New transactions",
+    "duplicates": "Imported before",
+    "outgoing": "Not incoming (left out)",
+    "matchedAtOnce": "Matched at once by their reference",
+    "errors": "The file could not be read, nothing was imported:",
+    "toTransactions": "To the transactions",
+    "transactionsTitle": "Transactions to match",
+    "transactionsIntro": "Incoming transactions that nothing has been matched to. Tick the request or requests the money was for (two members may have paid together), or dismiss a transaction that is not a membership payment.",
+    "noTransactions": "No transactions wait for a match.",
+    "pickRequests": "Requests that wait for payment",
+    "reported": "reported",
+    "suggestion": "suggested",
+    "mistypedReference": "looks like a mistyped reference",
+    "match": "Match",
+    "dismiss": "Not a membership payment",
+    "confirmDismiss": "Dismiss this transaction? Its text and payer are deleted.",
+    "reportedWithoutMatch": "Reported payments waiting to be found, oldest first",
+    "none": "None."
+  },
+  "formats": {
+    "title": "Bank formats",
+    "intro": "Describe each bank's CSV once: which columns hold the date, the amount, the text and the payer (counted from 1), how dates are written and what the file's character set is. A change of bank is a new format.",
+    "name": "Name",
+    "charset": "Character set",
+    "delimiter": "Separator",
+    "headerLines": "Header rows",
+    "dateColumn": "Date column",
+    "amountColumn": "Amount column",
+    "textColumn": "Text column",
+    "payerColumn": "Payer column",
+    "dateFormat": "Date format",
+    "decimalComma": "Decimal comma",
+    "save": "Save",
+    "delete": "Delete",
+    "confirmDelete": "Delete this format?",
+    "add": "Add a bank format"
   }
 }

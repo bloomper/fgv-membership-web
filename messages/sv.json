@@ -10,7 +10,9 @@
     "membership": "Mitt medlemskap",
     "payments": "Betalningar",
     "fees": "Avgifter",
-    "defaults": "Standardbehörighet"
+    "defaults": "Standardbehörighet",
+    "bank": "Bank",
+    "bankFormats": "Bankformat"
   },
   "home": {
     "title": "Medlemskap",
@@ -152,7 +154,14 @@
     "cash": "Kontant",
     "record": "Registrera betalning",
     "cancel": "Avbryt begäran",
-    "confirmCancel": "Avbryta begäran och dess medlemskap?"
+    "confirmCancel": "Avbryta begäran och dess medlemskap?",
+    "paidSoFar": "{paid} kr betalt, {left} kr kvar",
+    "recorded": "Registrerade i år",
+    "undoIntro": "En betalning kan ångras till årets slut.",
+    "noneRecorded": "Inga betalningar registrerade än.",
+    "fromBank": "från banken",
+    "undo": "Ångra",
+    "confirmUndo": "Ångra betalningen? Begäran blir öppen igen."
   },
   "fees": {
     "title": "Avgifter",
@@ -172,5 +181,50 @@
     "intro": "Den behörighet ett nytt konto får när det skapas från en betalning som gjorts någon annanstans, t.ex. i WordPress-butiken. Den högsta rollen du väljer för en applikation följer med rollerna under. Befintliga konton ändras aldrig.",
     "none": "Ingen behörighet",
     "save": "Spara"
+  },
+  "bank": {
+    "importTitle": "Importera kontoutdrag",
+    "importIntro": "Ladda upp kontots transaktioner som CSV-fil från banken. Bara inkommande transaktioner sparas, och samma transaktion importeras aldrig två gånger, så överlappande filer går bra. Import är frivillig: betalningar kan alltid registreras för hand.",
+    "noFormats": "Inget bankformat är beskrivet än. En administratör beskriver bankens fil under Bankformat.",
+    "format": "Bankformat",
+    "file": "CSV-fil",
+    "upload": "Importera",
+    "read": "Rader lästa",
+    "added": "Nya transaktioner",
+    "duplicates": "Importerade tidigare",
+    "outgoing": "Inte inkommande (utelämnade)",
+    "matchedAtOnce": "Matchade direkt på referensen",
+    "errors": "Filen kunde inte läsas, ingenting importerades:",
+    "toTransactions": "Till transaktionerna",
+    "transactionsTitle": "Transaktioner att matcha",
+    "transactionsIntro": "Inkommande transaktioner som inget har matchats mot. Kryssa i begäran eller begäranden som pengarna gällde (två medlemmar kan ha betalat ihop), eller avfärda en transaktion som inte är en medlemsbetalning.",
+    "noTransactions": "Inga transaktioner väntar på matchning.",
+    "pickRequests": "Begäranden som väntar på betalning",
+    "reported": "anmäld",
+    "suggestion": "föreslagen",
+    "mistypedReference": "ser ut som en felskriven referens",
+    "match": "Matcha",
+    "dismiss": "Ingen medlemsbetalning",
+    "confirmDismiss": "Avfärda transaktionen? Dess text och betalare raderas.",
+    "reportedWithoutMatch": "Anmälda betalningar som väntar på att hittas, äldst först",
+    "none": "Inga."
+  },
+  "formats": {
+    "title": "Bankformat",
+    "intro": "Beskriv varje banks CSV en gång: vilka kolumner som har datum, belopp, text och betalare (räknat från 1), hur datum skrivs och vilken teckenuppsättning filen har. Byter man bank blir det ett nytt format.",
+    "name": "Namn",
+    "charset": "Teckenuppsättning",
+    "delimiter": "Avskiljare",
+    "headerLines": "Rubrikrader",
+    "dateColumn": "Datumkolumn",
+    "amountColumn": "Beloppskolumn",
+    "textColumn": "Textkolumn",
+    "payerColumn": "Betalarkolumn",
+    "dateFormat": "Datumformat",
+    "decimalComma": "Decimalkomma",
+    "save": "Spara",
+    "delete": "Ta bort",
+    "confirmDelete": "Ta bort formatet?",
+    "add": "Lägg till bankformat"
   }
 }
