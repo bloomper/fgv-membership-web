@@ -23,7 +23,7 @@ export async function startPayment(_state: PayState, form: FormData): Promise<Pa
   let id: string;
 
   try {
-    id = (await graphql<{ requestPayment: { id: string } }>(await token(), paymentMutations.requestPayment, { feeLevelIds })).requestPayment.id;
+    id = (await graphql<{ requestPayment: { id: string } }>(await token(), paymentMutations.requestPayment, { feeLevelIds, familyNote: String(form.get("familyNote") ?? "") || null })).requestPayment.id;
   } catch (error) {
     return { ok: false, message: error instanceof GraphQLRequestError ? error.message : "Error" };
   }

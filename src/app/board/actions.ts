@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { graphql, GraphQLRequestError } from "@/lib/graphql";
 import { boardMutations } from "@/lib/board";
+import { adminMutations } from "@/lib/payment";
 import { requireRole } from "@/lib/guard";
 
 export type BoardState = { ok: boolean; message?: string; info?: string } | null;
@@ -70,4 +71,17 @@ export async function sendLink(spexareId: string, _state: BoardState, form: Form
 /** Search form: goes to the first match's page when there is one. */
 export async function openMember(id: string) {
   redirect(`/board/members/${id}`);
+}
+
+export async function addFamilyMembers(requestId: string, _state: BoardState, form: FormData): Promise<BoardState> {
+  const viewer = await requireRole("BOARD", `/board/requests/${requestId}/family`);
+
+  try {
+    await graphql(viewer.accessToken, adminMutations.addFamilyMembers, { requestId, spexareIds: form.getAll("person").map(String) });
+  } catch (error) {
+    return failure(error);
+  }
+  revalidatePath(`/board/requests/${requestId}/family`);
+  revalidatePath("/treasurer/payments");
+  return { ok: true };
 }

@@ -7,7 +7,7 @@ export default async function FeesPage() {
   const viewer = await requireRole("ADMIN", "/admin/fees");
   const t = await getTranslations("fees");
   const fees = await allFeeLevels(viewer.accessToken);
-  const labels = { year: t("year"), lifetime: t("lifetime"), nameSv: t("nameSv"), nameEn: t("nameEn"), amount: t("amount"), save: t("save") };
+  const labels = { year: t("year"), kind: t("kind"), kinds: { STANDARD: t("kinds.STANDARD"), FAMILY: t("kinds.FAMILY"), LIFETIME: t("kinds.LIFETIME") }, nameSv: t("nameSv"), nameEn: t("nameEn"), amount: t("amount"), save: t("save") };
 
   return (
     <div className="space-y-4">

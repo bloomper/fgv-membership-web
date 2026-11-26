@@ -5,7 +5,8 @@ import { graphql } from "@/lib/graphql";
 export type PaymentStatus = "OPEN" | "REPORTED" | "MATCHED" | "CANCELLED";
 export type PaymentHow = "SWISH" | "BANK_TRANSFER" | "CASH";
 
-export type PaymentItem = { id: string; year: number; lifetime: boolean; status: string };
+export type FeeKind = "STANDARD" | "FAMILY" | "LIFETIME";
+export type PaymentItem = { id: string; year: number; lifetime: boolean; status: string; spexareId: string | null };
 export type PaymentRequest = {
   id: string;
   reference: string;
@@ -16,6 +17,9 @@ export type PaymentRequest = {
   reportedAt: string | null;
   paidBy: string | null;
   spexareName: string | null;
+  family: boolean;
+  familyNote: string | null;
+  familyIncomplete: boolean;
   memberships: PaymentItem[];
   payee: { swishNumber: string | null; bankAccount: string | null; name: string };
   swishLink: string | null;
@@ -27,10 +31,10 @@ export type Suggestion = { requestId: string; reference: string; spexareName: st
 export type PaymentLine = { id: string; reference: string; spexareName: string | null; paidOn: string; amount: number; how: PaymentHow; note: string | null; transaction: boolean };
 export type ImportResult = { read: number; added: number; duplicates: number; outgoing: number; matched: number; errors: string[] };
 export type MembershipItem = { id: string; type: string; year: number; lifetime: boolean; status: string };
-export type FeeLevel = { id: string; year: number | null; lifetime: boolean; nameSv: string; nameEn: string; amount: number; retired: boolean };
+export type FeeLevel = { id: string; year: number | null; kind: FeeKind; lifetime: boolean; nameSv: string; nameEn: string; amount: number; retired: boolean };
 
-const REQUEST_FIELDS = `id reference amount paid status createdAt reportedAt paidBy spexareName memberships { id year lifetime status } payee { swishNumber bankAccount name }`;
-const FEE_FIELDS = `id year lifetime nameSv nameEn amount retired`;
+const REQUEST_FIELDS = `id reference amount paid status createdAt reportedAt paidBy spexareName family familyNote familyIncomplete memberships { id year lifetime status spexareId } payee { swishNumber bankAccount name }`;
+const FEE_FIELDS = `id year kind lifetime nameSv nameEn amount retired`;
 
 export async function myMembership(token: string) {
   const data = await graphql<{ myMembership: { linked: boolean; memberships: MembershipItem[]; requests: PaymentRequest[] } }>(
@@ -59,7 +63,7 @@ export async function allFeeLevels(token: string) {
 }
 
 export const paymentMutations = {
-  requestPayment: `mutation ($feeLevelIds: [ID!]!) { requestPayment(feeLevelIds: $feeLevelIds) { id } }`,
+  requestPayment: `mutation ($feeLevelIds: [ID!]!, $familyNote: String) { requestPayment(feeLevelIds: $feeLevelIds, familyNote: $familyNote) { id } }`,
   reportPaid: `mutation ($id: ID!, $paidBy: String) { reportPaid(id: $id, paidBy: $paidBy) { id } }`,
   recordPayment: `mutation ($requestId: ID!, $paidOn: String!, $amount: Int!, $how: PaymentHow!, $note: String) { recordPayment(requestId: $requestId, paidOn: $paidOn, amount: $amount, how: $how, note: $note) { id } }`,
   cancelPaymentRequest: `mutation ($id: ID!) { cancelPaymentRequest(id: $id) { id } }`,
@@ -102,4 +106,38 @@ export const bankMutations = {
   undoPayment: `mutation ($id: ID!) { undoPayment(id: $id) }`,
   bankFormatSave: `mutation ($input: BankFormatInput!) { bankFormatSave(input: $input) { id } }`,
   bankFormatDelete: `mutation ($id: ID!) { bankFormatDelete(id: $id) }`,
+} as const;
+
+export type Settings = { swishNumber: string | null; bankAccount: string | null; payeeName: string | null; reminderDays: number; recipients: string[] };
+export type MaintenanceJob = { name: string; description: string; lastRun: string | null; lastResult: string | null };
+export type AuditLine = { at: string; actor: string; actorName: string | null; action: string; subject: string | null; detail: string | null };
+export type Application = { id: string; applicantName: string; applicantEmail: string | null; text: string; status: "PENDING" | "ACCEPTED" | "REJECTED"; createdAt: string; decisionMessage: string | null };
+
+export async function settings(token: string) {
+  return (await graphql<{ settings: Settings }>(token, `{ settings { swishNumber bankAccount payeeName reminderDays recipients } }`)).settings;
+}
+
+export async function maintenanceJobs(token: string) {
+  return (await graphql<{ maintenanceJobs: MaintenanceJob[] }>(token, `{ maintenanceJobs { name description lastRun lastResult } }`)).maintenanceJobs;
+}
+
+export async function auditLog(token: string, first: number, max: number) {
+  return (await graphql<{ auditLog: AuditLine[] }>(token, `query ($first: Int, $max: Int) { auditLog(first: $first, max: $max) { at actor actorName action subject detail } }`, { first, max })).auditLog;
+}
+
+export async function myApplication(token: string) {
+  return (await graphql<{ myApplication: Application | null }>(token, `{ myApplication { id applicantName applicantEmail text status createdAt decisionMessage } }`)).myApplication;
+}
+
+export async function pendingApplications(token: string) {
+  return (await graphql<{ membershipApplications: Application[] }>(token, `{ membershipApplications { id applicantName applicantEmail text status createdAt decisionMessage } }`)).membershipApplications;
+}
+
+export const adminMutations = {
+  saveSettings: `mutation ($input: SettingsInput!) { saveSettings(input: $input) { reminderDays } }`,
+  runMaintenanceJob: `mutation ($name: String!) { runMaintenanceJob(name: $name) { name } }`,
+  applyForMembership: `mutation ($name: String!, $text: String!) { applyForMembership(name: $name, text: $text) { id } }`,
+  acceptApplication: `mutation ($id: ID!, $spexareId: ID) { acceptApplication(id: $id, spexareId: $spexareId) { id } }`,
+  rejectApplication: `mutation ($id: ID!, $message: String) { rejectApplication(id: $id, message: $message) { id } }`,
+  addFamilyMembers: `mutation ($requestId: ID!, $spexareIds: [ID!]!) { addFamilyMembers(requestId: $requestId, spexareIds: $spexareIds) { id } }`,
 } as const;

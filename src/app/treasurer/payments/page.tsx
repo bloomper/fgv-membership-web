@@ -1,4 +1,5 @@
 import { getFormatter, getTranslations } from "next-intl/server";
+import Link from "next/link";
 import { requireRole } from "@/lib/guard";
 import { paymentsThisYear, waitingRequests } from "@/lib/payment";
 import { UndoButton } from "./undo-button";
@@ -26,6 +27,13 @@ export default async function PaymentsPage() {
                 {" – "}<span className="font-semibold">{format.number(request.amount)} kr</span>
                 {request.paid > 0 && <> ({t("paidSoFar", { paid: request.paid, left: request.amount - request.paid })})</>}
               </p>
+              {request.family && (
+                <p className="text-sm">
+                  {t("family")}{request.familyNote ? `: ${request.familyNote}` : ""}
+                  {request.familyIncomplete && <> – <strong>{t("familyIncomplete")}</strong></>}
+                  {" – "}<Link className="underline" href={`/board/requests/${request.id}/family`}>{t("attachFamily")}</Link>
+                </p>
+              )}
               <p className="text-sm">
                 {t(`status.${request.status}`)}
                 {request.status === "REPORTED" && request.paidBy ? ` (${t("paidBy", { name: request.paidBy })})` : ""}

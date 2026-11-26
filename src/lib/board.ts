@@ -5,7 +5,7 @@ import type { PaymentRequest } from "@/lib/payment";
 
 export type Member = {
   membershipId: string; spexareId: string; name: string | null; type: string; year: number; lifetime: boolean;
-  status: string; how: string | null; note: string | null; optedOut: boolean; wasMemberLastYear: boolean;
+  status: string; how: string | null; note: string | null; optedOut: boolean; wasMemberLastYear: boolean; family: boolean;
 };
 export type MemberCount = { year: number; members: number; lifetime: number; joined: number };
 export type MemberItem = { id: string; type: string; year: number; lifetime: boolean; status: string; how: string | null; note: string | null };
@@ -21,7 +21,7 @@ export type RenewalPreview = { year: number; count: number; sample: string[]; su
 
 export async function listMembers(token: string, year: number, status: string | null, how: string | null, wasMemberLastYear: boolean | null) {
   return (await graphql<{ members: Member[] }>(token,
-    `query ($year: Int!, $status: String, $how: String, $was: Boolean) { members(year: $year, status: $status, how: $how, wasMemberLastYear: $was) { membershipId spexareId name type year lifetime status how note optedOut wasMemberLastYear } }`,
+    `query ($year: Int!, $status: String, $how: String, $was: Boolean) { members(year: $year, status: $status, how: $how, wasMemberLastYear: $was) { membershipId spexareId name type year lifetime status how note optedOut wasMemberLastYear family } }`,
     { year, status, how, was: wasMemberLastYear })).members;
 }
 

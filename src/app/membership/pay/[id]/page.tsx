@@ -16,6 +16,9 @@ export default async function PaymentPage({ params }: { params: Promise<{ id: st
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">{t("payTitle")}</h1>
       <p>{request.memberships.map((item) => (item.lifetime ? t("lifeFrom", { year: item.year }) : String(item.year))).join(", ")}</p>
+      {request.family && (
+        <p className="text-sm">{request.familyIncomplete ? t("familyPending") : t("familyCount", { count: new Set(request.memberships.map((item) => item.spexareId)).size })}</p>
+      )}
       {request.status === "MATCHED" && <p role="status" className="font-semibold">{t("confirmed")}</p>}
       {request.status === "CANCELLED" && <p role="status">{t("cancelled")}</p>}
       {open && (

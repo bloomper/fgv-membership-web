@@ -13,7 +13,11 @@
     "defaults": "Standardbehörighet",
     "bank": "Bank",
     "bankFormats": "Bankformat",
-    "members": "Medlemmar"
+    "members": "Medlemmar",
+    "applications": "Ansökningar",
+    "settings": "Inställningar",
+    "maintenance": "Underhåll",
+    "audit": "Granskningslogg"
   },
   "home": {
     "title": "Medlemskap",
@@ -110,7 +114,15 @@
       "REPORTED": "Väntar på bekräftelse",
       "MATCHED": "Betalt",
       "CANCELLED": "Avbrutet"
-    }
+    },
+    "applicationPending": "Din ansökan är skickad. Styrelsen svarar med mejl.",
+    "applicationRejected": "Din tidigare ansökan godkändes inte",
+    "applyTitle": "Ansök om medlemskap",
+    "applyIntro": "Berätta vem du är och hur du har varit med i spexet. Styrelsen kopplar ditt konto till registret och hör av sig.",
+    "applyName": "Ditt namn",
+    "applyText": "Hur har du varit med i spexet?",
+    "applyHint": "T.ex. vilka spex och år",
+    "applySubmit": "Skicka ansökan"
   },
   "pay": {
     "title": "Betala medlemsavgift",
@@ -135,7 +147,12 @@
     "waitingForConfirmation": "Väntar på bekräftelse: du har sagt att du har betalat. Du får ett mejl när kassören har hittat betalningen.",
     "confirmed": "Din betalning är bekräftad. Tack!",
     "cancelled": "Den här begäran har avbrutits.",
-    "back": "Tillbaka till mitt medlemskap"
+    "back": "Tillbaka till mitt medlemskap",
+    "family": "familj",
+    "familyNote": "Vilka ingår i familjen? (namn, så att styrelsen kan ge dem medlemskapet)",
+    "familyHint": "T.ex. min sambo Gösta och våra barn Lisa och Pelle",
+    "familyPending": "Ett familjemedlemskap: styrelsen lägger till de familjemedlemmar du angett.",
+    "familyCount": "Ett familjemedlemskap för {count} personer."
   },
   "treasurer": {
     "title": "Betalningar",
@@ -163,7 +180,10 @@
     "fromBank": "från banken",
     "undo": "Ångra",
     "confirmUndo": "Ångra betalningen? Begäran blir öppen igen.",
-    "exportPayments": "Årets betalningar till bokföringen (Excel)"
+    "exportPayments": "Årets betalningar till bokföringen (Excel)",
+    "family": "Familjemedlemskap",
+    "familyIncomplete": "familjemedlemmar ej tillagda än",
+    "attachFamily": "Lägg till familjemedlemmar"
   },
   "fees": {
     "title": "Avgifter",
@@ -176,7 +196,13 @@
     "save": "Spara",
     "retire": "Ta ur bruk",
     "restore": "Erbjud igen",
-    "add": "Lägg till avgift"
+    "add": "Lägg till avgift",
+    "kind": "Sort",
+    "kinds": {
+      "STANDARD": "Standard",
+      "FAMILY": "Familj",
+      "LIFETIME": "Livstid"
+    }
   },
   "defaults": {
     "title": "Standardbehörighet",
@@ -270,7 +296,8 @@
       "WAIVED": "Beviljat",
       "REVIVAL": "Betalt av en nyuppsättning",
       "MIGRATED": "Från Spexregistret"
-    }
+    },
+    "family": "familj"
   },
   "member": {
     "memberships": "Medlemskap",
@@ -328,5 +355,58 @@
     "account": "Du kan också",
     "login": "logga in",
     "register": "skapa ett konto"
+  },
+  "family": {
+    "title": "Familj: {reference}",
+    "saidByPayer": "Betalaren angav",
+    "members": "Personer med medlemskapet",
+    "add": "Lägg till familjemedlemmar",
+    "searchName": "Sök på namn",
+    "search": "Sök",
+    "addSelected": "Lägg till de valda",
+    "back": "Tillbaka till betalningarna"
+  },
+  "applications": {
+    "title": "Ansökningar om medlemskap",
+    "intro": "Välj den spexare i Spexregistret som den sökande är, eller godkänn utan att välja för att skapa en ny spexare från kontots namn och mejladress. Den sökande får veta med mejl.",
+    "none": "Inga ansökningar väntar.",
+    "searchName": "Sök i registret på namn",
+    "search": "Sök",
+    "pick": "Vem är den sökande?",
+    "createNew": "Skapa en ny spexare från kontot",
+    "accept": "Godkänn",
+    "message": "Meddelande till den sökande (valfritt)",
+    "reject": "Avslå",
+    "confirmReject": "Avslå ansökan?"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "intro": "Var medlemmar betalar och vem som får veta om betalningar. Ett tomt värde faller tillbaka på det installationen är konfigurerad med.",
+    "swish": "Swish-nummer",
+    "bank": "Bankkonto",
+    "payee": "Mottagarens namn",
+    "days": "Påminn betalare om öppna begäranden efter (dagar)",
+    "recipients": "Får mejl om betalningar och nya registreringar",
+    "recipientsHint": "En adress på varje rad",
+    "save": "Spara",
+    "saved": "Sparat."
+  },
+  "maintenance": {
+    "title": "Underhåll",
+    "intro": "Jobb som körs av sig själva enligt schema. Kör ett nu om det behövs.",
+    "last": "Kördes senast {at}: {result}",
+    "never": "Har inte körts än.",
+    "run": "Kör nu"
+  },
+  "audit": {
+    "title": "Granskningslogg",
+    "intro": "Vem som ändrade vad, senaste först, även ändringar av användares behörighet.",
+    "when": "När",
+    "who": "Vem",
+    "what": "Vad",
+    "subject": "Gäller",
+    "detail": "Detaljer",
+    "newer": "Nyare",
+    "older": "Äldre"
   }
 }

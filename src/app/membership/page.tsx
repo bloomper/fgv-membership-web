@@ -1,7 +1,8 @@
 import { getFormatter, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { requireRole } from "@/lib/guard";
-import { myMembership } from "@/lib/payment";
+import { myApplication, myMembership } from "@/lib/payment";
+import { ApplyForm } from "./apply/apply-form";
 
 export default async function MyMembershipPage() {
   const viewer = await requireRole("USER", "/membership");
@@ -10,10 +11,20 @@ export default async function MyMembershipPage() {
   const mine = await myMembership(viewer.accessToken);
 
   if (!mine.linked) {
+    const application = await myApplication(viewer.accessToken);
+
     return (
       <div className="space-y-4">
         <h1 className="text-2xl font-semibold">{t("title")}</h1>
         <p>{t("notLinked")}</p>
+        {application?.status === "PENDING" ? <p role="status" className="font-semibold">{t("applicationPending")}</p> : (
+          <>
+            {application?.status === "REJECTED" && <p role="status">{t("applicationRejected")}{application.decisionMessage ? `: ${application.decisionMessage}` : ""}</p>}
+            <h2 className="font-semibold">{t("applyTitle")}</h2>
+            <p className="text-sm">{t("applyIntro")}</p>
+            <ApplyForm defaultName={viewer.name} labels={{ name: t("applyName"), text: t("applyText"), hint: t("applyHint"), submit: t("applySubmit") }} />
+          </>
+        )}
       </div>
     );
   }

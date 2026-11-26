@@ -11,8 +11,9 @@ export default async function PayPage() {
   const options = fees.map((fee) => ({
     id: fee.id,
     group: fee.lifetime ? "life" : String(fee.year),
-    label: `${locale === "sv" ? fee.nameSv : fee.nameEn}${fee.lifetime ? ` (${t("forLife")})` : fee.year ? ` ${fee.year}` : ""}`,
+    label: `${locale === "sv" ? fee.nameSv : fee.nameEn}${fee.lifetime ? ` (${t("forLife")})` : fee.year ? ` ${fee.year}` : ""}${fee.kind === "FAMILY" ? ` (${t("family")})` : ""}`,
     amount: fee.amount,
+    family: fee.kind === "FAMILY",
   }));
 
   return (
@@ -21,7 +22,7 @@ export default async function PayPage() {
       {options.length === 0 ? <p>{t("noFees")}</p> : (
         <>
           <p>{t("intro")}</p>
-          <PayForm options={options} labels={{ submit: t("submit"), total: t("total"), life: t("lifeGroup") }} />
+          <PayForm options={options} labels={{ submit: t("submit"), total: t("total"), life: t("lifeGroup"), familyNote: t("familyNote"), familyHint: t("familyHint") }} />
         </>
       )}
     </div>

@@ -27,11 +27,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <Link href="/" className="font-semibold">Medlemskap</Link>
               {viewer && <Link href="/membership">{t("membership")}</Link>}
               {viewer && hasRole(viewer.roles, "BOARD") && <Link href="/board/members">{t("members")}</Link>}
+              {viewer && hasRole(viewer.roles, "BOARD") && <Link href="/board/applications">{t("applications")}</Link>}
               {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/payments">{t("payments")}</Link>}
               {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/transactions">{t("bank")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/fees">{t("fees")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/defaults">{t("defaults")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/bank-formats">{t("bankFormats")}</Link>}
+              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/settings">{t("settings")}</Link>}
+              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/maintenance">{t("maintenance")}</Link>}
+              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/audit">{t("audit")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/users">{t("users")}</Link>}
               <span className="ml-auto" />
               <form action={setLocale.bind(null, locale === "sv" ? "en" : "sv")}>

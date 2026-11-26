@@ -88,7 +88,7 @@ export default async function MembersPage({ searchParams }: { searchParams: Prom
               {members.map((member) => (
                 <tr key={member.membershipId} className="border-b border-zinc-100 dark:border-zinc-900">
                   <td className="py-1 pr-4"><Link className="underline" href={`/board/members/${member.spexareId}`}>{member.name ?? member.spexareId}</Link>
-                    {member.lifetime && <span> ({t("lifetimeFrom", { year: member.year })})</span>}{member.optedOut && <span> ({t("optedOut")})</span>}</td>
+                    {member.lifetime && <span> ({t("lifetimeFrom", { year: member.year })})</span>}{member.family && <span> ({t("family")})</span>}{member.optedOut && <span> ({t("optedOut")})</span>}</td>
                   <td className="py-1 pr-4">{t(`statuses.${member.status}`)}</td>
                   <td className="py-1 pr-4">{member.how ? t(`hows.${member.how}`) : ""}</td>
                   <td className="py-1">{member.note ?? ""}</td>

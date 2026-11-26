@@ -13,7 +13,11 @@
     "defaults": "Default access",
     "bank": "Bank",
     "bankFormats": "Bank formats",
-    "members": "Members"
+    "members": "Members",
+    "applications": "Applications",
+    "settings": "Settings",
+    "maintenance": "Maintenance",
+    "audit": "Audit log"
   },
   "home": {
     "title": "Membership",
@@ -110,7 +114,15 @@
       "REPORTED": "Waiting for confirmation",
       "MATCHED": "Paid",
       "CANCELLED": "Cancelled"
-    }
+    },
+    "applicationPending": "Your application has been sent. The board will answer by email.",
+    "applicationRejected": "Your earlier application was not accepted",
+    "applyTitle": "Apply for membership",
+    "applyIntro": "Tell us who you are and how you have been part of the spex. The board links your account to the register and lets you know.",
+    "applyName": "Your name",
+    "applyText": "How have you been part of the spex?",
+    "applyHint": "E.g. which spex and years",
+    "applySubmit": "Send the application"
   },
   "pay": {
     "title": "Pay a membership fee",
@@ -135,7 +147,12 @@
     "waitingForConfirmation": "Waiting for confirmation: you have said that you paid. You get an email when the treasurer has found the payment.",
     "confirmed": "Your payment is confirmed. Thank you!",
     "cancelled": "This request has been cancelled.",
-    "back": "Back to my membership"
+    "back": "Back to my membership",
+    "family": "family",
+    "familyNote": "Who is in the family? (names, so that the board can give them the membership)",
+    "familyHint": "E.g. my partner Gösta and our children Lisa and Pelle",
+    "familyPending": "A family membership: the board will add the family members you named.",
+    "familyCount": "A family membership for {count} people."
   },
   "treasurer": {
     "title": "Payments",
@@ -163,7 +180,10 @@
     "fromBank": "from the bank",
     "undo": "Undo",
     "confirmUndo": "Undo this payment? The request is open again.",
-    "exportPayments": "The year's payments for the bookkeeping (Excel)"
+    "exportPayments": "The year's payments for the bookkeeping (Excel)",
+    "family": "Family membership",
+    "familyIncomplete": "family members not added yet",
+    "attachFamily": "Add family members"
   },
   "fees": {
     "title": "Fees",
@@ -176,7 +196,13 @@
     "save": "Save",
     "retire": "Retire",
     "restore": "Offer again",
-    "add": "Add a fee"
+    "add": "Add a fee",
+    "kind": "Kind",
+    "kinds": {
+      "STANDARD": "Standard",
+      "FAMILY": "Family",
+      "LIFETIME": "Life"
+    }
   },
   "defaults": {
     "title": "Default access",
@@ -270,7 +296,8 @@
       "WAIVED": "Granted",
       "REVIVAL": "Paid by a revival",
       "MIGRATED": "From Spexregister"
-    }
+    },
+    "family": "family"
   },
   "member": {
     "memberships": "Memberships",
@@ -328,5 +355,58 @@
     "account": "You can also",
     "login": "log in",
     "register": "create an account"
+  },
+  "family": {
+    "title": "Family: {reference}",
+    "saidByPayer": "The payer said",
+    "members": "People with the membership",
+    "add": "Add family members",
+    "searchName": "Search by name",
+    "search": "Search",
+    "addSelected": "Add the selected",
+    "back": "Back to the payments"
+  },
+  "applications": {
+    "title": "Applications for membership",
+    "intro": "Pick the spexare in Spexregister that the applicant is, or accept without picking one to create a new spexare from the account's name and email address. The applicant is told by email.",
+    "none": "No applications wait.",
+    "searchName": "Search the register by name",
+    "search": "Search",
+    "pick": "Who is the applicant?",
+    "createNew": "Create a new spexare from the account",
+    "accept": "Accept",
+    "message": "Message to the applicant (optional)",
+    "reject": "Reject",
+    "confirmReject": "Reject this application?"
+  },
+  "settings": {
+    "title": "Settings",
+    "intro": "Where members pay and who is told about payments. An empty value falls back to what the installation is configured with.",
+    "swish": "Swish number",
+    "bank": "Bank account",
+    "payee": "Payee's name",
+    "days": "Remind payers of open requests after (days)",
+    "recipients": "Emailed about payments and new registrations",
+    "recipientsHint": "One address on each line",
+    "save": "Save",
+    "saved": "Saved."
+  },
+  "maintenance": {
+    "title": "Maintenance",
+    "intro": "Jobs that run by themselves on a schedule. Run one now if you need to.",
+    "last": "Last run {at}: {result}",
+    "never": "Has not run yet.",
+    "run": "Run now"
+  },
+  "audit": {
+    "title": "Audit log",
+    "intro": "Who changed what, newest first, including changes to users' access.",
+    "when": "When",
+    "who": "Who",
+    "what": "What",
+    "subject": "About",
+    "detail": "Details",
+    "newer": "Newer",
+    "older": "Older"
   }
 }

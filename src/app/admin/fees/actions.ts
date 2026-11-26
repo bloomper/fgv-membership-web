@@ -20,13 +20,14 @@ async function run(query: string, variables: Record<string, unknown>): Promise<F
 }
 
 export async function saveFee(id: string | null, _state: FeeState, form: FormData): Promise<FeeState> {
-  const lifetime = form.get("lifetime") === "on";
+  const kind = String(form.get("kind") ?? "STANDARD");
+  const year = String(form.get("year") ?? "");
 
   return run(paymentMutations.feeLevelSave, {
     input: {
       id,
-      year: lifetime ? null : Number(form.get("year")),
-      lifetime,
+      year: year ? Number(year) : null,
+      kind,
       nameSv: String(form.get("nameSv") ?? ""),
       nameEn: String(form.get("nameEn") ?? ""),
       amount: Number(form.get("amount")),
