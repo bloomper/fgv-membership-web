@@ -162,7 +162,8 @@
     "noneRecorded": "Inga betalningar registrerade än.",
     "fromBank": "från banken",
     "undo": "Ångra",
-    "confirmUndo": "Ångra betalningen? Begäran blir öppen igen."
+    "confirmUndo": "Ångra betalningen? Begäran blir öppen igen.",
+    "exportPayments": "Årets betalningar till bokföringen (Excel)"
   },
   "fees": {
     "title": "Avgifter",

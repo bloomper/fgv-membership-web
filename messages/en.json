@@ -162,7 +162,8 @@
     "noneRecorded": "No payments recorded yet.",
     "fromBank": "from the bank",
     "undo": "Undo",
-    "confirmUndo": "Undo this payment? The request is open again."
+    "confirmUndo": "Undo this payment? The request is open again.",
+    "exportPayments": "The year's payments for the bookkeeping (Excel)"
   },
   "fees": {
     "title": "Fees",

@@ -15,6 +15,7 @@ export default async function PaymentsPage() {
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">{t("title")}</h1>
       <p className="text-sm">{t("intro")}</p>
+      <p className="text-sm"><a className="underline" href={`/board/export/payments?year=${new Date().getFullYear()}`}>{t("exportPayments")}</a></p>
       {requests.length === 0 ? <p>{t("none")}</p> : (
         <ul className="space-y-4">
           {requests.map((request) => (
