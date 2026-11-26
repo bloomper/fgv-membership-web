@@ -9,7 +9,8 @@
     "register": "Create account",
     "membership": "My membership",
     "payments": "Payments",
-    "fees": "Fees"
+    "fees": "Fees",
+    "defaults": "Default access"
   },
   "home": {
     "title": "Membership",
@@ -165,5 +166,11 @@
     "retire": "Retire",
     "restore": "Offer again",
     "add": "Add a fee"
+  },
+  "defaults": {
+    "title": "Default access",
+    "intro": "The access a new account gets when it is created from a payment made elsewhere, e.g. in the WordPress shop. The highest role you pick on an application comes with the roles below it. Existing accounts are never changed.",
+    "none": "No access",
+    "save": "Save"
   }
 }

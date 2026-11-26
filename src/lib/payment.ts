@@ -60,3 +60,13 @@ export const paymentMutations = {
   feeLevelSave: `mutation ($input: FeeLevelInput!) { feeLevelSave(input: $input) { id } }`,
   feeLevelRetire: `mutation ($id: ID!, $retired: Boolean!) { feeLevelRetire(id: $id, retired: $retired) { id } }`,
 } as const;
+
+export type DefaultAccess = { clientId: string; name: string; ladder: string[]; role: string | null };
+
+export async function defaultAccess(token: string) {
+  return (await graphql<{ defaultAccess: DefaultAccess[] }>(token, `{ defaultAccess { clientId name ladder role } }`)).defaultAccess;
+}
+
+export const defaultAccessMutations = {
+  setDefaultAccess: `mutation ($clientId: String!, $role: String) { setDefaultAccess(clientId: $clientId, role: $role) { clientId } }`,
+} as const;

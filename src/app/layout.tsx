@@ -28,6 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               {viewer && <Link href="/membership">{t("membership")}</Link>}
               {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/payments">{t("payments")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/fees">{t("fees")}</Link>}
+              {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/defaults">{t("defaults")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/users">{t("users")}</Link>}
               <span className="ml-auto" />
               <form action={setLocale.bind(null, locale === "sv" ? "en" : "sv")}>

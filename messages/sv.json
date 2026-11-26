@@ -9,7 +9,8 @@
     "register": "Skapa konto",
     "membership": "Mitt medlemskap",
     "payments": "Betalningar",
-    "fees": "Avgifter"
+    "fees": "Avgifter",
+    "defaults": "Standardbehörighet"
   },
   "home": {
     "title": "Medlemskap",
@@ -165,5 +166,11 @@
     "retire": "Ta ur bruk",
     "restore": "Erbjud igen",
     "add": "Lägg till avgift"
+  },
+  "defaults": {
+    "title": "Standardbehörighet",
+    "intro": "Den behörighet ett nytt konto får när det skapas från en betalning som gjorts någon annanstans, t.ex. i WordPress-butiken. Den högsta rollen du väljer för en applikation följer med rollerna under. Befintliga konton ändras aldrig.",
+    "none": "Ingen behörighet",
+    "save": "Spara"
   }
 }
