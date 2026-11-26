@@ -12,7 +12,8 @@
     "fees": "Fees",
     "defaults": "Default access",
     "bank": "Bank",
-    "bankFormats": "Bank formats"
+    "bankFormats": "Bank formats",
+    "members": "Members"
   },
   "home": {
     "title": "Membership",
@@ -226,5 +227,105 @@
     "delete": "Delete",
     "confirmDelete": "Delete this format?",
     "add": "Add a bank format"
+  },
+  "members": {
+    "title": "Members",
+    "year": "Year",
+    "status": "Status",
+    "how": "How",
+    "lastYear": "Last year",
+    "any": "Any",
+    "counting": "Members (paid or granted)",
+    "wasMember": "Were members last year",
+    "wasNotMember": "Were not members last year",
+    "filter": "Filter",
+    "counts": "Members over the years",
+    "summary": "{year}: {members} members, {lifetime} for life, {joined} joined",
+    "exportMembers": "Member list (Excel)",
+    "renewals": "Renewal reminders",
+    "membersHeader": "Members",
+    "lifetimeHeader": "For life",
+    "joinedHeader": "Joined",
+    "findSpexare": "Find a person",
+    "searchName": "Search by name",
+    "search": "Search",
+    "list": "{year}: {count} in the list",
+    "name": "Name",
+    "note": "Note",
+    "lifetimeFrom": "for life from {year}",
+    "optedOut": "does not want reminders",
+    "statuses": {
+      "PAID": "Paid",
+      "WAIVED": "Granted",
+      "PENDING": "Not paid",
+      "REPORTED": "Says paid",
+      "CANCELLED": "Cancelled"
+    },
+    "hows": {
+      "SWISH": "Swish",
+      "BANK_TRANSFER": "Bank transfer",
+      "CASH": "Cash",
+      "ONLINE": "Online",
+      "WAIVED": "Granted",
+      "REVIVAL": "Paid by a revival",
+      "MIGRATED": "From Spexregister"
+    }
+  },
+  "member": {
+    "memberships": "Memberships",
+    "requests": "Payment requests",
+    "emails": "Emails sent",
+    "none": "None.",
+    "paid": "{paid} kr paid",
+    "requestStatus": {
+      "OPEN": "Not paid",
+      "REPORTED": "Reported",
+      "MATCHED": "Paid",
+      "CANCELLED": "Cancelled"
+    },
+    "emailKinds": {
+      "RENEWAL": "Renewal reminder",
+      "LINK": "Payment link"
+    },
+    "inSpexregister": "In Spexregister",
+    "forLife": "life",
+    "waiver": "Grant a membership without a fee",
+    "waiverIntro": "For an honorary member, say. Pick the year, or life from that year, and say why.",
+    "year": "Year",
+    "lifetime": "For life",
+    "note": "Note",
+    "grant": "Grant",
+    "sendLink": "Ask to pay",
+    "sendLinkIntro": "Tick what to pay for. The member gets an email with a personal link to the payment page.",
+    "send": "Send",
+    "sent": "Sent.",
+    "notSent": "The request was made but no email could be sent (no address?).",
+    "record": "Record a payment without a request",
+    "recordIntro": "For someone who paid without asking first: tick what it was for; the request is made and marked paid.",
+    "date": "Date",
+    "amount": "Amount (kr)",
+    "how": "How",
+    "recordSubmit": "Record",
+    "back": "Back to the members"
+  },
+  "renewals": {
+    "title": "Renewal reminders",
+    "intro": "Last year's members who have nothing for the year yet, are not members for life and have not asked to be left alone get an email with a payment request and a personal link.",
+    "year": "Year",
+    "show": "Show",
+    "noFee": "There is no fee for {year} yet. An administrator adds it under Fees.",
+    "fee": "Fee",
+    "recipients": "{count, plural, =0 {Nobody would get a reminder} one {# person would get a reminder} other {# people would get a reminder}}",
+    "sample": "Among them",
+    "send": "Send the reminders",
+    "confirm": "Send {count, plural, one {# reminder} other {# reminders}}?",
+    "done": "Sent: {sent}. Left out (no email address, or it failed): {skipped}."
+  },
+  "personal": {
+    "optOut": "Don't remind me again",
+    "optedOut": "You will not be reminded again.",
+    "account": "You can also",
+    "login": "log in",
+    "register": "create an account"
   }
 }

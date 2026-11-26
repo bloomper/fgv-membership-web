@@ -12,7 +12,8 @@
     "fees": "Avgifter",
     "defaults": "Standardbehörighet",
     "bank": "Bank",
-    "bankFormats": "Bankformat"
+    "bankFormats": "Bankformat",
+    "members": "Medlemmar"
   },
   "home": {
     "title": "Medlemskap",
@@ -226,5 +227,105 @@
     "delete": "Ta bort",
     "confirmDelete": "Ta bort formatet?",
     "add": "Lägg till bankformat"
+  },
+  "members": {
+    "title": "Medlemmar",
+    "year": "År",
+    "status": "Status",
+    "how": "Hur",
+    "lastYear": "Förra året",
+    "any": "Alla",
+    "counting": "Medlemmar (betalt eller beviljat)",
+    "wasMember": "Var medlemmar förra året",
+    "wasNotMember": "Var inte medlemmar förra året",
+    "filter": "Filtrera",
+    "counts": "Medlemmar genom åren",
+    "summary": "{year}: {members} medlemmar, {lifetime} på livstid, {joined} nya",
+    "exportMembers": "Medlemslista (Excel)",
+    "renewals": "Förnyelsepåminnelser",
+    "membersHeader": "Medlemmar",
+    "lifetimeHeader": "Livstid",
+    "joinedHeader": "Nya",
+    "findSpexare": "Hitta en person",
+    "searchName": "Sök på namn",
+    "search": "Sök",
+    "list": "{year}: {count} i listan",
+    "name": "Namn",
+    "note": "Anteckning",
+    "lifetimeFrom": "livstid från {year}",
+    "optedOut": "vill inte ha påminnelser",
+    "statuses": {
+      "PAID": "Betalt",
+      "WAIVED": "Beviljat",
+      "PENDING": "Ej betalt",
+      "REPORTED": "Säger sig ha betalat",
+      "CANCELLED": "Avbrutet"
+    },
+    "hows": {
+      "SWISH": "Swish",
+      "BANK_TRANSFER": "Banköverföring",
+      "CASH": "Kontant",
+      "ONLINE": "På nätet",
+      "WAIVED": "Beviljat",
+      "REVIVAL": "Betalt av en nyuppsättning",
+      "MIGRATED": "Från Spexregistret"
+    }
+  },
+  "member": {
+    "memberships": "Medlemskap",
+    "requests": "Betalningsbegäran",
+    "emails": "Skickade mejl",
+    "none": "Inga.",
+    "paid": "{paid} kr betalt",
+    "requestStatus": {
+      "OPEN": "Ej betalt",
+      "REPORTED": "Anmäld",
+      "MATCHED": "Betalt",
+      "CANCELLED": "Avbruten"
+    },
+    "emailKinds": {
+      "RENEWAL": "Förnyelsepåminnelse",
+      "LINK": "Betalningslänk"
+    },
+    "inSpexregister": "I Spexregistret",
+    "forLife": "livstid",
+    "waiver": "Bevilja medlemskap utan avgift",
+    "waiverIntro": "T.ex. för en hedersmedlem. Välj år, eller livstid från det året, och skriv varför.",
+    "year": "År",
+    "lifetime": "Livstid",
+    "note": "Anteckning",
+    "grant": "Bevilja",
+    "sendLink": "Be om betalning",
+    "sendLinkIntro": "Kryssa i vad som ska betalas. Medlemmen får ett mejl med en personlig länk till betalsidan.",
+    "send": "Skicka",
+    "sent": "Skickat.",
+    "notSent": "Begäran skapades men inget mejl kunde skickas (saknas adress?).",
+    "record": "Registrera en betalning utan begäran",
+    "recordIntro": "För någon som betalat utan att fråga först: kryssa i vad det gällde; begäran skapas och markeras betald.",
+    "date": "Datum",
+    "amount": "Belopp (kr)",
+    "how": "Hur",
+    "recordSubmit": "Registrera",
+    "back": "Tillbaka till medlemmarna"
+  },
+  "renewals": {
+    "title": "Förnyelsepåminnelser",
+    "intro": "Förra årets medlemmar som inte har något för året än, inte är medlemmar på livstid och inte bett att få vara i fred får ett mejl med en betalningsbegäran och en personlig länk.",
+    "year": "År",
+    "show": "Visa",
+    "noFee": "Det finns ingen avgift för {year} än. En administratör lägger till den under Avgifter.",
+    "fee": "Avgift",
+    "recipients": "{count, plural, =0 {Ingen skulle få en påminnelse} one {# person skulle få en påminnelse} other {# personer skulle få en påminnelse}}",
+    "sample": "Bland dem",
+    "send": "Skicka påminnelserna",
+    "confirm": "Skicka {count, plural, one {# påminnelse} other {# påminnelser}}?",
+    "done": "Skickade: {sent}. Utelämnade (saknar mejladress, eller misslyckades): {skipped}."
+  },
+  "personal": {
+    "optOut": "Påminn mig inte igen",
+    "optedOut": "Du kommer inte att påminnas igen.",
+    "account": "Du kan också",
+    "login": "logga in",
+    "register": "skapa ett konto"
   }
 }

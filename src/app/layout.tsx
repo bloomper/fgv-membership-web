@@ -26,6 +26,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <nav className="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3 text-sm">
               <Link href="/" className="font-semibold">Medlemskap</Link>
               {viewer && <Link href="/membership">{t("membership")}</Link>}
+              {viewer && hasRole(viewer.roles, "BOARD") && <Link href="/board/members">{t("members")}</Link>}
               {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/payments">{t("payments")}</Link>}
               {viewer && hasRole(viewer.roles, "TREASURER") && <Link href="/treasurer/transactions">{t("bank")}</Link>}
               {viewer && hasRole(viewer.roles, "ADMIN") && <Link href="/admin/fees">{t("fees")}</Link>}
