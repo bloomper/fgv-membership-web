@@ -3,6 +3,7 @@ import {BankFormatForm} from "@/components/admin/bank-format-form.client";
 import {getBankFormats} from "@/lib/bank/bank.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** The layout of each bank's CSV file, described once. */
 export default async function BankFormatsPage() {
@@ -11,9 +12,8 @@ export default async function BankFormatsPage() {
         const formats = await getBankFormats();
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page>
+                <PageHeader title={t("title")} description={t("intro")}/>
                 <ul className="space-y-6">
                     {formats.map(format => (
                         <li key={format.id}>
@@ -25,7 +25,7 @@ export default async function BankFormatsPage() {
                     <h2 className="text-lg font-semibold">{t("add")}</h2>
                     <BankFormatForm format={null}/>
                 </section>
-            </div>
+            </Page>
         );
     });
 }

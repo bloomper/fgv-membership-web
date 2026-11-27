@@ -2,7 +2,7 @@
 
 import {useTransition} from "react";
 import {useTranslations} from "next-intl";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {useActionFeedback} from "@/hooks/use-action-feedback";
 import type {ActionResult} from "@/lib/graphql.server";
 

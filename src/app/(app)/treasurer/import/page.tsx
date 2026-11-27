@@ -4,6 +4,7 @@ import {ImportForm} from "@/components/treasurer/import-form.client";
 import {getBankFormats} from "@/lib/bank/bank.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Upload the account's transactions as a CSV file from the bank. */
 export default async function ImportPage() {
@@ -12,14 +13,13 @@ export default async function ImportPage() {
         const formats = await getBankFormats();
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("importTitle")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("importIntro")}</p>
+            <Page>
+                <PageHeader title={t("importTitle")} description={t("importIntro")}/>
                 {formats.length === 0
                     ? <p>{t("noFormats")}</p>
                     : <ImportForm formats={formats.map(format => ({id: format.id, name: format.name}))}/>}
-                <p><Link className="underline underline-offset-4" href="/treasurer/transactions">{t("toTransactions")}</Link></p>
-            </div>
+                <p><Link className="text-link hover:text-link/80" href="/treasurer/transactions">{t("toTransactions")}</Link></p>
+            </Page>
         );
     });
 }

@@ -7,10 +7,10 @@ import {AppSidebar} from "@/components/app-sidebar.client";
 import {RolesProvider} from "@/components/roles-provider.client";
 import {SiteHeader} from "@/components/site-header.client";
 import {getApplications} from "@/utils/applications.server";
-import {SidebarInset, SidebarProvider} from "@/components/ui/sidebar";
-import {Button} from "@/components/ui/button";
+import {SidebarInset, SidebarProvider} from "@bloomper/fgv-web-ui/ui/sidebar";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {PublicHeader} from "@/components/public-header";
-import {LogoHome} from "@/components/logo-home";
+import {LogoHome} from "@bloomper/fgv-web-ui/shell/logo-home";
 import {requireUser} from "@/utils/auth.server";
 import {hasAccess, SSO_CHECKED_COOKIE} from "@/utils/auth";
 

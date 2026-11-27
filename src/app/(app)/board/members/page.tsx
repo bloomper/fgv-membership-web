@@ -1,13 +1,14 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {NativeSelect, NativeSelectOption} from "@/components/ui/native-select";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Input} from "@bloomper/fgv-web-ui/ui/input";
+import {NativeSelect, NativeSelectOption} from "@bloomper/fgv-web-ui/ui/native-select";
 import {MembersTable} from "@/components/members/members-table.client";
 import {getMemberTrend, listMembers, searchSpexare} from "@/lib/members/members.server";
 import {MEMBER_HOWS, MEMBER_STATUSES} from "@/lib/members/schema";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 type Search = { year?: string; status?: string; how?: string; last?: string; q?: string };
 
@@ -27,8 +28,8 @@ export default async function MembersPage({searchParams}: { searchParams: Promis
         const current = trend.find(count => count.year === year);
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+            <Page variant="content">
+                <PageHeader title={t("title")}/>
                 <form className="flex flex-wrap items-end gap-3" action="/board/members">
                     <label className="space-y-1 text-sm">{t("year")}
                         <Input className="w-24" type="number" name="year" defaultValue={year}/>
@@ -61,9 +62,9 @@ export default async function MembersPage({searchParams}: { searchParams: Promis
                     <h2 className="text-lg font-semibold">{t("counts")}</h2>
                     {current && <p>{t("summary", {year, members: current.members, lifetime: current.lifetime, joined: current.joined})}</p>}
                     <p className="text-sm">
-                        <a className="underline underline-offset-4" href={`/board/export/members?year=${year}`}>{t("exportMembers")}</a>
+                        <a className="text-link hover:text-link/80" href={`/board/export/members?year=${year}`}>{t("exportMembers")}</a>
                         {" · "}
-                        <Link className="underline underline-offset-4" href="/board/renewals">{t("renewals")}</Link>
+                        <Link className="text-link hover:text-link/80" href="/board/renewals">{t("renewals")}</Link>
                     </p>
                     <div className="max-w-full overflow-x-auto">
                         <table className="text-left text-sm">
@@ -78,7 +79,7 @@ export default async function MembersPage({searchParams}: { searchParams: Promis
                             <tbody>
                             {[...trend].reverse().map(count => (
                                 <tr key={count.year}>
-                                    <td className="pr-4"><Link className="underline underline-offset-4" href={`/board/members?year=${count.year}`}>{count.year}</Link></td>
+                                    <td className="pr-4"><Link className="text-link hover:text-link/80" href={`/board/members?year=${count.year}`}>{count.year}</Link></td>
                                     <td className="pr-4">{count.members}</td>
                                     <td className="pr-4">{count.lifetime}</td>
                                     <td>{count.joined}</td>
@@ -99,7 +100,7 @@ export default async function MembersPage({searchParams}: { searchParams: Promis
                     {found.length > 0 && (
                         <ul className="space-y-1">
                             {found.map(person => (
-                                <li key={person.id}><Link className="underline underline-offset-4" href={`/board/members/${person.id}`}>{person.firstName} {person.lastName}</Link></li>
+                                <li key={person.id}><Link className="text-link hover:text-link/80" href={`/board/members/${person.id}`}>{person.firstName} {person.lastName}</Link></li>
                             ))}
                         </ul>
                     )}
@@ -121,7 +122,7 @@ export default async function MembersPage({searchParams}: { searchParams: Promis
                         support: member.support,
                     }))}/>
                 </section>
-            </div>
+            </Page>
         );
     });
 }

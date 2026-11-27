@@ -1,12 +1,13 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {PaymentDetails} from "@/components/payment/payment-details";
 import {ReportPaidForm} from "@/components/payment/report-paid-form.client";
 import {getPaymentRequest} from "@/lib/membership/membership.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
 import {reportPaidAction} from "@/app/(app)/membership/actions.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** How to pay a request, and a way to say that it is paid. */
 export default async function PaymentPage({params}: { params: Promise<{ id: string }> }) {
@@ -23,8 +24,8 @@ export default async function PaymentPage({params}: { params: Promise<{ id: stri
         const open = request.status === "OPEN" || request.status === "REPORTED";
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("payTitle")}</h1>
+            <Page variant="content">
+                <PageHeader title={t("payTitle")}/>
                 <p>{request.memberships.map(item => (item.lifetime ? t("lifeFrom", {year: item.year}) : String(item.year))).join(", ")}</p>
                 {request.family && (
                     <p className="text-sm text-muted-foreground">
@@ -44,7 +45,7 @@ export default async function PaymentPage({params}: { params: Promise<{ id: stri
                     </>
                 )}
                 <div><Button variant="outline" nativeButton={false} render={<Link href="/membership"/>}>{t("back")}</Button></div>
-            </div>
+            </Page>
         );
     });
 }

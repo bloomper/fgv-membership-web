@@ -1,13 +1,14 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Card, CardContent} from "@/components/ui/card";
-import {DataEmpty} from "@/components/data-empty";
+import {Card, CardContent} from "@bloomper/fgv-web-ui/ui/card";
+import {DataEmpty} from "@bloomper/fgv-web-ui/shell/data-empty";
 import {TransactionForm} from "@/components/treasurer/transaction-form.client";
 import {getTransactionSuggestions, getUnmatchedTransactions} from "@/lib/bank/bank.server";
 import {getWaitingRequests} from "@/lib/payments/payments.server";
 import {formatAmount, formatDate} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Incoming bank transactions that nothing has been matched to. */
 export default async function TransactionsPage() {
@@ -22,11 +23,8 @@ export default async function TransactionsPage() {
         const reported = waiting.filter(request => request.status === "REPORTED");
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("transactionsTitle")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">
-                    {t("transactionsIntro")} <Link className="underline underline-offset-4" href="/treasurer/import">{t("importTitle")}</Link>
-                </p>
+            <Page variant="content">
+                <PageHeader title={t("transactionsTitle")} description={<>{t("transactionsIntro")} <Link className="text-link hover:text-link/80" href="/treasurer/import">{t("importTitle")}</Link></>}/>
                 {transactions.length === 0 ? <DataEmpty title={t("noTransactions")} description=""/> : (
                     <ul className="space-y-4">
                         {transactions.map((transaction, index) => (
@@ -55,7 +53,7 @@ export default async function TransactionsPage() {
                         </ul>
                     )}
                 </section>
-            </div>
+            </Page>
         );
     });
 }

@@ -3,6 +3,7 @@ import {DefaultForm} from "@/components/admin/default-form.client";
 import {ACCESS_PROFILES, getDefaultAccess} from "@/lib/defaults/defaults.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** The access a new account gets when it is made from a payment elsewhere. */
 export default async function DefaultsPage() {
@@ -11,9 +12,8 @@ export default async function DefaultsPage() {
         const sets = await Promise.all(ACCESS_PROFILES.map(async profile => ({profile, entries: await getDefaultAccess(profile)})));
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page variant="content">
+                <PageHeader title={t("title")} description={t("intro")}/>
                 {sets.map(({profile, entries}) => (
                     <section key={profile} className="space-y-2">
                         <h2 className="text-lg font-semibold">{t(`profiles.${profile}`)}</h2>
@@ -27,7 +27,7 @@ export default async function DefaultsPage() {
                         </ul>
                     </section>
                 ))}
-            </div>
+            </Page>
         );
     });
 }

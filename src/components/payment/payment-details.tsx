@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {formatAmount} from "@/utils/format";
 
 /**

@@ -60,9 +60,9 @@ export default async function PersonalLinkPage({params}: { params: Promise<{ tok
                 {page.optedOut ? <p>{tl("optedOut")}</p> : <OptOutButton optOut={optOutByLinkAction.bind(null, token)}/>}
                 <p>
                     {tl("account")}{" "}
-                    <a className="underline underline-offset-4" href="/api/auth/login">{tl("login")}</a>
+                    <a className="text-link hover:text-link/80" href="/api/auth/login">{tl("login")}</a>
                     {" · "}
-                    <Link className="underline underline-offset-4" href="/register">{tl("register")}</Link>
+                    <Link className="text-link hover:text-link/80" href="/register">{tl("register")}</Link>
                 </p>
             </section>
         </div>

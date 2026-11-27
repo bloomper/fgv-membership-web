@@ -3,7 +3,7 @@
 import {useTransition} from "react";
 import {useTranslations} from "next-intl";
 import {Loader2, Play} from "lucide-react";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {runJobAction} from "@/app/(app)/admin/maintenance/actions.server";
 import {useActionFeedback} from "@/hooks/use-action-feedback";
 

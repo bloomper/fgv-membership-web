@@ -1,8 +1,8 @@
 "use client";
 
 import {useId} from "react";
-import {Checkbox} from "@/components/ui/checkbox";
-import {Label} from "@/components/ui/label";
+import {Checkbox} from "@bloomper/fgv-web-ui/ui/checkbox";
+import {Label} from "@bloomper/fgv-web-ui/ui/label";
 
 export type ChecklistOption = { id: string; label: string; hint?: string };
 

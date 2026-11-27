@@ -13,24 +13,17 @@
     "remove": "Remove",
     "delete": "Delete",
     "edit": "Edit",
-    "close": "Close",
     "reload": "Reload",
     "chooseFile": "Choose file…",
     "noFileChosen": "No file chosen",
     "confirm": "Confirm",
     "loading": "Loading…",
     "saved": "Saved",
-    "themeLight": "Light",
-    "themeDark": "Dark",
-    "themeSystem": "System",
     "myFgvAccount": "My FGV account",
-    "toggle": "Toggle",
     "search": "Search",
     "selected": "{count, plural, =1 {# selected} other {# selected}}",
     "reset": "Reset",
     "resetFilters": "Reset filters",
-    "noDataHeading": "No data found",
-    "noDataDescription": "Couldn't find any data at the moment. Please check back later.",
     "noFilterMatchHeading": "No data found",
     "noFilterMatchDescription": "Try adjusting your filters or search query to find what you're looking for.",
     "rowsPerPage": "Rows per page",
@@ -66,15 +59,6 @@
     "send": "Send",
     "kr": "{amount} kr"
   },
-  "Header": {
-    "toggleLanguage": "Change language",
-    "toggleTheme": "Change theme",
-    "showMenu": "Show menu"
-  },
-  "Sidebar": {
-    "hideMenu": "Hide menu",
-    "showMenu": "Show menu"
-  },
   "Error": {
     "title": "Something went wrong",
     "text": "An unexpected error occurred.",
@@ -84,17 +68,6 @@
     "title": "Login failed",
     "text": "Something went wrong while logging in. Please try again.",
     "retry": "Try again"
-  },
-  "AppSwitcher": {
-    "heading": "Switch application",
-    "spexregister": "Spexregister",
-    "spexflix": "Spexflix",
-    "spexify": "Spexify",
-    "spexgram": "Spexgram",
-    "spexipedia": "Spexipedia",
-    "archive": "Spexarkiv",
-    "membership": "Membership",
-    "revival": "Nyuppsättning"
   },
   "CommandPalette": {
     "title": "Command palette",
@@ -553,21 +526,6 @@
     "settings": "Settings",
     "maintenance": "Maintenance",
     "audit": "Audit log"
-  },
-  "NoAccess": {
-    "title": "You do not have access",
-    "text": "Your FGV account ({email}) does not have access to Membership. Ask an administrator for access, or log out and log in with another account.",
-    "logout": "Log out"
-  },
-  "Forbidden": {
-    "title": "You do not have permission",
-    "text": "You do not have permission to see this page. Ask an administrator if you need it.",
-    "home": "To the home page"
-  },
-  "NotFound": {
-    "title": "Page not found",
-    "text": "The page does not exist, or you do not have access to it.",
-    "home": "To the home page"
   },
   "Errors": {
     "CONFLICT": "Someone else has changed this. Reload and try again.",

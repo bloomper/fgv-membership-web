@@ -1,10 +1,11 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@bloomper/fgv-web-ui/ui/card";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
 import {requireUser} from "@/utils/auth.server";
 import {GROUPS, MEMBERSHIP} from "@/utils/navigation";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /**
  * The start page: a card for each part of Medlemskap the user may open.
@@ -20,11 +21,8 @@ export default async function HomePage() {
         ];
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-bold tracking-tight">{t("welcome", {name: session?.user.name ?? ""})}</h1>
-                    <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
-                </div>
+            <Page variant="content">
+                <PageHeader title={t("welcome", {name: session?.user.name ?? ""})} description={t("intro")}/>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {cards.map(({key, url, icon: Icon}) => (
                         <Link key={key} href={url} className="rounded-xl focus-visible:outline-2 focus-visible:outline-ring">
@@ -38,7 +36,7 @@ export default async function HomePage() {
                         </Link>
                     ))}
                 </div>
-            </div>
+            </Page>
         );
     });
 }

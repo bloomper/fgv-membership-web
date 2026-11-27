@@ -3,7 +3,7 @@
 import {useTransition} from "react";
 import {useTranslations} from "next-intl";
 import {toast} from "sonner";
-import {ConfirmButton} from "@/components/confirm-button.client";
+import {ConfirmButton} from "@bloomper/fgv-web-ui/shell/confirm-button";
 import {sendRenewalsAction} from "@/app/(app)/board/actions.server";
 import {useActionFeedback} from "@/hooks/use-action-feedback";
 

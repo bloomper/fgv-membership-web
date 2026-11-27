@@ -1,13 +1,14 @@
 import {getLocale, getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {NativeSelect, NativeSelectOption} from "@/components/ui/native-select";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Input} from "@bloomper/fgv-web-ui/ui/input";
+import {NativeSelect, NativeSelectOption} from "@bloomper/fgv-web-ui/ui/native-select";
 import {RenewalForm} from "@/components/members/renewal-form.client";
 import {getFeeLevels} from "@/lib/membership/membership.server";
 import {getRenewalPreview} from "@/lib/members/members.server";
 import {formatAmount} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Who a renewal reminder for the year would go to, and a way to send it. */
 export default async function RenewalsPage({searchParams}: { searchParams: Promise<{ year?: string; fee?: string }> }) {
@@ -21,9 +22,8 @@ export default async function RenewalsPage({searchParams}: { searchParams: Promi
         const preview = fee ? await getRenewalPreview(year, fee.id) : null;
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page>
+                <PageHeader title={t("title")} description={t("intro")}/>
                 <form className="flex flex-wrap items-end gap-3" action="/board/renewals">
                     <label className="space-y-1 text-sm">{t("year")}
                         <Input className="w-24" type="number" name="year" defaultValue={year}/>
@@ -50,7 +50,7 @@ export default async function RenewalsPage({searchParams}: { searchParams: Promi
                         {preview.count > 0 && <RenewalForm year={year} feeLevelId={fee.id} count={preview.count}/>}
                     </div>
                 )}
-            </div>
+            </Page>
         );
     });
 }

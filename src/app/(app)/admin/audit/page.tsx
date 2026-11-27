@@ -1,10 +1,11 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@bloomper/fgv-web-ui/ui/table";
 import {AUDIT_PAGE_SIZE, getAuditLog} from "@/lib/audit/audit.server";
 import {formatInstant} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Who changed what, newest first, including changes to users' access. */
 export default async function AuditPage({searchParams}: { searchParams: Promise<{ page?: string }> }) {
@@ -14,9 +15,8 @@ export default async function AuditPage({searchParams}: { searchParams: Promise<
         const lines = await getAuditLog((page - 1) * AUDIT_PAGE_SIZE, AUDIT_PAGE_SIZE);
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page>
+                <PageHeader title={t("title")} description={t("intro")}/>
                 <div className="rounded-md border">
                     <Table>
                         <TableHeader>
@@ -42,10 +42,10 @@ export default async function AuditPage({searchParams}: { searchParams: Promise<
                     </Table>
                 </div>
                 <p className="flex gap-4">
-                    {page > 1 && <Link className="underline underline-offset-4" href={`/admin/audit?page=${page - 1}`}>{t("newer")}</Link>}
-                    {lines.length === AUDIT_PAGE_SIZE && <Link className="underline underline-offset-4" href={`/admin/audit?page=${page + 1}`}>{t("older")}</Link>}
+                    {page > 1 && <Link className="text-link hover:text-link/80" href={`/admin/audit?page=${page - 1}`}>{t("newer")}</Link>}
+                    {lines.length === AUDIT_PAGE_SIZE && <Link className="text-link hover:text-link/80" href={`/admin/audit?page=${page + 1}`}>{t("older")}</Link>}
                 </p>
-            </div>
+            </Page>
         );
     });
 }

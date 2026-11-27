@@ -45,9 +45,8 @@ comes from `.nvmrc`.
     - `import "server-only"` ⇔ `*.server.ts` (libs, utils).
     - `"use server"` ⇔ `*.server.ts` too — the `actions.server.ts` server-action modules. Don't add `server-only` to a
       `"use server"` file.
-- Standing exceptions: `src/auth.ts`; Next.js reserved filenames (`page.tsx`, `layout.tsx`, `error.tsx`, ...); and
-  shadcn-owned files (`src/components/ui/**`, `src/hooks/use-mobile.ts`), which keep their upstream names.
-- `src/gql/**` (generated) and `src/components/ui/**` (shadcn) are ESLint-ignored — don't hand-edit them.
+- Standing exceptions: `src/auth.ts` and Next.js reserved filenames (`page.tsx`, `layout.tsx`, `error.tsx`, ...).
+- `src/gql/**` (generated) is ESLint-ignored — don't hand-edit it.
 
 ## Structure
 
@@ -59,7 +58,37 @@ comes from `.nvmrc`.
   a token).
 - `src/utils/navigation.ts` — the menu, once, for the sidebar, the command palette and the start page.
 - `src/lib/<area>/<area>.server.ts` — GraphQL documents and calls; `schema.ts` — the Zod schema of the area's forms.
-- `src/components/<area>/*.client.tsx` — the forms and tables of an area; `src/components/ui/` — shadcn.
+- `src/components/<area>/*.client.tsx` — the forms and tables of an area; the shadcn components come from
+  `@bloomper/fgv-web-ui/ui/*`.
+
+## Shared FGV UI
+
+The theme, the shadcn components and the application shell come from `@bloomper/fgv-web-ui` (repo
+`bloomper/fgv-web-ui`, published to GitHub Packages), shared by all eight FGV web applications:
+
+- `@bloomper/fgv-web-ui/ui/<name>` for every shadcn component (`button`, `sidebar`, `dialog`, …). Don't add a local
+  copy with `shadcn add`: the shell and the application must share one `SidebarProvider`, and a change that belongs in
+  every application goes into the package.
+- `shell/*`: `SiteHeader` (wrapped in `src/components/site-header.client.tsx` with Medlemskap's own controls),
+  `AppSwitcher`, `resolveApplications`, `SidebarBrand`, `NavMain`, `NavSecondary`, the toggles, `DataEmpty`, the
+  status pages and the logos.
+- **Pages** are a `Page` (`variant="content"` for articles and records, the default for lists and forms) with a
+  `PageHeader` first (`title`, `description`, `actions`, `eyebrow`, `badges`), both from `shell/page-header`; a page's
+  `loading.tsx` uses the same `Page`.
+- **Confirmations** always ask in an alert dialog: `ConfirmButton` (`shell/confirm-button`), or
+  `useDialogs().confirm` / `prompt` / `choose` (`shell/dialogs`; mount `DialogsProvider` in the `(app)` layout first)
+  inside a handler. A dialog with content of its own uses `ui/alert-dialog` directly. Never `window.confirm` or
+  `window.prompt`.
+- `src/app/globals.css` imports `tailwindcss` and the package's `styles.css`, then only what is Medlemskap's own. The brand
+  colour on the page background (links, labels, active icons) is `text-link`; `primary` is for fills.
+- The favicons in `src/app/` (`icon.svg`, `favicon.ico`, `apple-icon.png`) are Medlemskap's switcher icon on the brand
+  blue, generated in the package (`scripts/app-icons.mjs`).
+- The shell's texts live in the package under `FgvUi`; `withFgvMessages` adds them wherever messages are loaded
+  (`src/i18n/request.ts`, `src/app/layout.tsx`, `changeLocale` in `src/app/provider.client.tsx`), and
+  `FgvShellProvider` there hands the shell `changeLocale` and Umami's `track`.
+- Installing needs a token, even locally: `.npmrc` reads `NODE_AUTH_TOKEN` (a token with `read:packages`). CI uses
+  `GITHUB_TOKEN`, and the image build gets it as the `npm_token` build secret.
+- Vitest inlines the package (`server.deps.inline`) so the mocks in the setup file reach it.
 
 ## Rendering and caching — Cache Components is ON
 
@@ -109,7 +138,7 @@ comes from `.nvmrc`.
 Forms use `react-hook-form` + `zodResolver`; Zod messages are keys under `Validation`, translated where they are shown
 (`FormError`). Lists use `DataTable` (client-side sorting and paging) where the data is all there, and plain `Table`
 with page links where the server pages (users, the audit log). Anything that cannot be undone asks first with
-`ConfirmButton`. `@tanstack/react-table` has the same traps under the React Compiler as in the other webs: never put
+`ConfirmButton` (`@bloomper/fgv-web-ui/shell/confirm-button`). `@tanstack/react-table` has the same traps under the React Compiler as in the other webs: never put
 `table` in an effect's dependencies, and pass primitives to memoized cells.
 
 ## Mobile
@@ -126,9 +155,10 @@ and carry enum values, counts and booleans only, never names, emails, ids or typ
 
 ## Application switcher
 
-The title in the header opens a menu of the FGV applications the user can open (`getApplications()`); the addresses
-come from `*_WEB_URL` variables. The webs carry identical copies of `applications.ts`, the component and their tests,
-and differ only in the id passed in `applications.server.ts`.
+The title in the header (`AppSwitcher` from `@bloomper/fgv-web-ui/shell/app-switcher`) opens a menu of the FGV
+applications the user can open (`getApplications()`), in the same order in every application; the addresses come from
+`*_WEB_URL` variables. The list, the component and their tests live in the package; each application only passes its
+own id in `applications.server.ts`.
 
 ## Testing
 

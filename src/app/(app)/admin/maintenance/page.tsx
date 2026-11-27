@@ -1,10 +1,11 @@
 import {getTranslations} from "next-intl/server";
-import {Card, CardContent} from "@/components/ui/card";
+import {Card, CardContent} from "@bloomper/fgv-web-ui/ui/card";
 import {RunJobButton} from "@/components/admin/run-job-button.client";
 import {getMaintenanceJobs} from "@/lib/maintenance/maintenance.server";
 import {formatInstant} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** The jobs that run by themselves on a schedule, and a way to run one now. */
 export default async function MaintenancePage() {
@@ -13,9 +14,8 @@ export default async function MaintenancePage() {
         const jobs = await getMaintenanceJobs();
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page>
+                <PageHeader title={t("title")} description={t("intro")}/>
                 <ul className="space-y-3">
                     {jobs.map(job => (
                         <li key={job.name}>
@@ -31,7 +31,7 @@ export default async function MaintenancePage() {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </Page>
         );
     });
 }

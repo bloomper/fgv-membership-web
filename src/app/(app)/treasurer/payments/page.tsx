@@ -1,14 +1,15 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Badge} from "@/components/ui/badge";
-import {Card, CardContent} from "@/components/ui/card";
-import {DataEmpty} from "@/components/data-empty";
+import {Badge} from "@bloomper/fgv-web-ui/ui/badge";
+import {Card, CardContent} from "@bloomper/fgv-web-ui/ui/card";
+import {DataEmpty} from "@bloomper/fgv-web-ui/shell/data-empty";
 import {RecordPaymentForm} from "@/components/treasurer/record-payment-form.client";
 import {UndoButton} from "@/components/treasurer/undo-button.client";
 import {getPaymentsThisYear, getWaitingRequests} from "@/lib/payments/payments.server";
 import {formatAmount, formatDate} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Requests that wait for money, and the payments recorded this year, which can be undone until the year ends. */
 export default async function PaymentsPage() {
@@ -18,11 +19,10 @@ export default async function PaymentsPage() {
         const today = new Date().toISOString().slice(0, 10);
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page variant="content">
+                <PageHeader title={t("title")} description={t("intro")}/>
                 <p className="text-sm">
-                    <a className="underline underline-offset-4" href={`/board/export/payments?year=${new Date().getFullYear()}`}>{t("exportPayments")}</a>
+                    <a className="text-link hover:text-link/80" href={`/board/export/payments?year=${new Date().getFullYear()}`}>{t("exportPayments")}</a>
                 </p>
                 {requests.length === 0 ? <DataEmpty title={t("none")} description=""/> : (
                     <ul className="space-y-4">
@@ -40,7 +40,7 @@ export default async function PaymentsPage() {
                                             <p className="text-sm">
                                                 {t("family")}{request.familyNote ? `: ${request.familyNote}` : ""}
                                                 {request.familyIncomplete && <> – <strong>{t("familyIncomplete")}</strong></>}
-                                                {" – "}<Link className="underline underline-offset-4" href={`/board/requests/${request.id}/family`}>{t("attachFamily")}</Link>
+                                                {" – "}<Link className="text-link hover:text-link/80" href={`/board/requests/${request.id}/family`}>{t("attachFamily")}</Link>
                                             </p>
                                         )}
                                         <p className="text-sm">
@@ -69,7 +69,7 @@ export default async function PaymentsPage() {
                         </ul>
                     )}
                 </section>
-            </div>
+            </Page>
         );
     });
 }
