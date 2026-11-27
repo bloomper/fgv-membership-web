@@ -37,7 +37,7 @@ export function MembersTable({rows}: { rows: MemberRow[] }) {
 
                 return (
                     <div className="min-w-40 whitespace-normal">
-                        <Link className="underline underline-offset-4" href={`/board/members/${member.spexareId}`}>{member.name}</Link>
+                        <Link className="text-link hover:text-link/80" href={`/board/members/${member.spexareId}`}>{member.name}</Link>
                         {marks.length > 0 && <span className="text-muted-foreground"> ({marks.join(", ")})</span>}
                     </div>
                 );

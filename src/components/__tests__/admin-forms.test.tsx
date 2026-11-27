@@ -5,7 +5,7 @@ import {FeeForm} from "@/components/admin/fee-form.client";
 import {SettingsForm} from "@/components/admin/settings-form.client";
 import {DefaultForm} from "@/components/admin/default-form.client";
 import {AccessForm} from "@/components/admin/user-controls.client";
-import {ConfirmButton} from "@/components/confirm-button.client";
+import {ConfirmButton} from "@bloomper/fgv-web-ui/shell/confirm-button";
 import {Checklist} from "@/components/checklist.client";
 
 const saveFeeAction = vi.hoisted(() => vi.fn());

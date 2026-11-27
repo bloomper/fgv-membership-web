@@ -1,13 +1,14 @@
 import Link from "next/link";
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {NativeSelect, NativeSelectOption} from "@/components/ui/native-select";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Input} from "@bloomper/fgv-web-ui/ui/input";
+import {NativeSelect, NativeSelectOption} from "@bloomper/fgv-web-ui/ui/native-select";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@bloomper/fgv-web-ui/ui/table";
 import {listUsers, USER_STATUSES} from "@/lib/users/users.server";
 import {formatDate} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 const PAGE = 25;
 
@@ -23,8 +24,8 @@ export default async function UsersPage({searchParams}: { searchParams: Promise<
         const link = (p: number) => `/admin/users?${new URLSearchParams({...(q ? {q} : {}), ...(selected ? {status: selected} : {}), page: String(p)})}`;
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+            <Page>
+                <PageHeader title={t("title")}/>
                 <form className="flex flex-wrap gap-2" action="/admin/users">
                     <Input className="max-w-xs" type="search" name="q" defaultValue={q} placeholder={t("search")} aria-label={t("search")}/>
                     <NativeSelect name="status" defaultValue={selected ?? ""} aria-label={t("status")}>
@@ -46,7 +47,7 @@ export default async function UsersPage({searchParams}: { searchParams: Promise<
                         <TableBody>
                             {users?.items.map(user => (
                                 <TableRow key={user.id}>
-                                    <TableCell><Link className="underline underline-offset-4" href={`/admin/users/${user.id}`}>{user.displayName}</Link></TableCell>
+                                    <TableCell><Link className="text-link hover:text-link/80" href={`/admin/users/${user.id}`}>{user.displayName}</Link></TableCell>
                                     <TableCell>{user.email}</TableCell>
                                     <TableCell>{t(`statuses.${user.status}`)}</TableCell>
                                     <TableCell>{formatDate(user.createdAt)}</TableCell>
@@ -58,12 +59,12 @@ export default async function UsersPage({searchParams}: { searchParams: Promise<
                 </div>
                 {pages > 1 && (
                     <nav className="flex items-center gap-3 text-sm" aria-label={t("pages")}>
-                        {current > 1 && <Link className="underline underline-offset-4" href={link(current - 1)}>{t("previous")}</Link>}
+                        {current > 1 && <Link className="text-link hover:text-link/80" href={link(current - 1)}>{t("previous")}</Link>}
                         <span>{current} / {pages}</span>
-                        {current < pages && <Link className="underline underline-offset-4" href={link(current + 1)}>{t("next")}</Link>}
+                        {current < pages && <Link className="text-link hover:text-link/80" href={link(current + 1)}>{t("next")}</Link>}
                     </nav>
                 )}
-            </div>
+            </Page>
         );
     });
 }

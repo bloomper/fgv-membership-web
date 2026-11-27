@@ -4,7 +4,7 @@ import {useTransition} from "react";
 import {useTranslations} from "next-intl";
 import {Controller, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {Checklist} from "@/components/checklist.client";
 import {FormError} from "@/components/form-error";
 import {addFamilyMembersAction} from "@/app/(app)/board/actions.server";

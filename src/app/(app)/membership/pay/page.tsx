@@ -3,6 +3,7 @@ import {PayForm} from "@/components/membership/pay-form.client";
 import {getFeeLevels} from "@/lib/membership/membership.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Pick the fees to pay: one for each year, or the life fee. */
 export default async function PayPage() {
@@ -19,15 +20,15 @@ export default async function PayPage() {
         }));
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+            <Page>
+                <PageHeader title={t("title")}/>
                 {options.length === 0 ? <p className="text-sm text-muted-foreground">{t("noFees")}</p> : (
                     <>
                         <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
                         <PayForm options={options}/>
                     </>
                 )}
-            </div>
+            </Page>
         );
     });
 }

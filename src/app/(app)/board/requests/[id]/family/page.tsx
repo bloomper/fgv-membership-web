@@ -1,12 +1,13 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Input} from "@bloomper/fgv-web-ui/ui/input";
 import {AttachForm} from "@/components/members/attach-form.client";
 import {getFamilyRequest, searchSpexare} from "@/lib/members/members.server";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** The people a family request pays for, and a way to add more. */
 export default async function FamilyPage({params, searchParams}: { params: Promise<{ id: string }>; searchParams: Promise<{ q?: string }> }) {
@@ -25,8 +26,8 @@ export default async function FamilyPage({params, searchParams}: { params: Promi
         const have = new Set(request.familyMembers.map(person => person.id));
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title", {reference: request.reference})}</h1>
+            <Page>
+                <PageHeader title={t("title", {reference: request.reference})}/>
                 {request.familyNote && <p className="text-sm">{t("saidByPayer")}: <em>{request.familyNote}</em></p>}
                 <section className="space-y-1">
                     <h2 className="text-lg font-semibold">{t("members")}</h2>
@@ -43,7 +44,7 @@ export default async function FamilyPage({params, searchParams}: { params: Promi
                     )}
                 </section>
                 <div><Button variant="outline" nativeButton={false} render={<Link href="/treasurer/payments"/>}>{t("back")}</Button></div>
-            </div>
+            </Page>
         );
     });
 }

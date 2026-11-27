@@ -2,7 +2,7 @@
 
 import {useState, useTransition} from "react";
 import {useTranslations} from "next-intl";
-import {Button} from "@/components/ui/button";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {verifyAction} from "@/app/(public)/register/actions.server";
 
 /** A button, not a link that acts on its own: mail scanners open links, and that must not use the token up. */

@@ -1,14 +1,15 @@
 import {getTranslations} from "next-intl/server";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {DataEmpty} from "@/components/data-empty";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Input} from "@bloomper/fgv-web-ui/ui/input";
+import {Card, CardContent, CardHeader, CardTitle} from "@bloomper/fgv-web-ui/ui/card";
+import {DataEmpty} from "@bloomper/fgv-web-ui/shell/data-empty";
 import {DecisionForms} from "@/components/applications/decision-forms.client";
 import {getPendingApplications} from "@/lib/applications/applications.server";
 import {searchSpexare} from "@/lib/members/members.server";
 import {formatDate} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** Applications for a membership: the board links each to a spexare in the register, or creates one. */
 export default async function ApplicationsPage({searchParams}: { searchParams: Promise<{ q?: string; app?: string }> }) {
@@ -19,9 +20,8 @@ export default async function ApplicationsPage({searchParams}: { searchParams: P
         const found = q ? await searchSpexare(q) : [];
 
         return (
-            <div className="flex flex-1 flex-col gap-4 p-4 md:p-8">
-                <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
-                <p className="max-w-prose text-sm text-muted-foreground">{t("intro")}</p>
+            <Page>
+                <PageHeader title={t("title")} description={t("intro")}/>
                 {applications.length === 0 ? <DataEmpty title={t("none")} description=""/> : (
                     <ul className="space-y-4">
                         {applications.map(application => (
@@ -48,7 +48,7 @@ export default async function ApplicationsPage({searchParams}: { searchParams: P
                         ))}
                     </ul>
                 )}
-            </div>
+            </Page>
         );
     });
 }

@@ -6,9 +6,9 @@ import {useRouter} from "next/navigation";
 import {useTranslations} from "next-intl";
 import {Command as CommandIcon, IdCard, type LucideIcon, Wrench} from "lucide-react";
 
-import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@/components/ui/command";
-import {Dialog, DialogContent, DialogDescription, DialogTitle} from "@/components/ui/dialog";
-import {Button} from "@/components/ui/button";
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@bloomper/fgv-web-ui/ui/command";
+import {Dialog, DialogContent, DialogDescription, DialogTitle} from "@bloomper/fgv-web-ui/ui/dialog";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {useRoles} from "@/components/roles-provider.client";
 import {GROUPS, HOME, MEMBERSHIP} from "@/utils/navigation";
 import {track} from "@/utils/umami";

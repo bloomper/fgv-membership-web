@@ -1,7 +1,7 @@
 "use client";
 
 import {useTranslations} from "next-intl";
-import {ConfirmButton} from "@/components/confirm-button.client";
+import {ConfirmButton} from "@bloomper/fgv-web-ui/shell/confirm-button";
 import {undoPaymentAction} from "@/app/(app)/treasurer/actions.server";
 import {useActionFeedback} from "@/hooks/use-action-feedback";
 

@@ -1,14 +1,15 @@
 import Link from "next/link";
 import {getLocale, getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
-import {Badge} from "@/components/ui/badge";
-import {Button} from "@/components/ui/button";
+import {Badge} from "@bloomper/fgv-web-ui/ui/badge";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
 import {RecordWithoutRequestForm, SendLinkForm, WaiverForm} from "@/components/members/member-forms.client";
 import {getFeeLevels} from "@/lib/membership/membership.server";
 import {getMemberDetail} from "@/lib/members/members.server";
 import {formatAmount, formatInstant} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** A member: memberships over the years, requests, the emails sent, and what the board may do for them. */
 export default async function MemberPage({params}: { params: Promise<{ id: string }> }) {
@@ -32,14 +33,8 @@ export default async function MemberPage({params}: { params: Promise<{ id: strin
         const today = new Date().toISOString().slice(0, 10);
 
         return (
-            <div className="flex flex-1 flex-col gap-6 p-4 md:p-8">
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-bold tracking-tight">{detail.spexare.firstName} {detail.spexare.lastName}</h1>
-                    <p className="text-sm text-muted-foreground">
-                        {detail.spexare.email}{detail.optedOut && ` · ${tm("optedOut")}`}
-                        {spexregister && <> · <a className="underline underline-offset-4" href={`${spexregister}/spexare/${id}`} target="_blank" rel="noopener noreferrer">{t("inSpexregister")}</a></>}
-                    </p>
-                </div>
+            <Page variant="content">
+                <PageHeader title={`${detail.spexare.firstName} ${detail.spexare.lastName}`} description={<>{detail.spexare.email}{detail.optedOut && ` · ${tm("optedOut")}`}{spexregister && <> · <a className="text-link hover:text-link/80" href={`${spexregister}/spexare/${id}`} target="_blank" rel="noopener noreferrer">{t("inSpexregister")}</a></>}</>}/>
 
                 <section className="space-y-2">
                     <h2 className="text-lg font-semibold">{t("memberships")}</h2>
@@ -97,7 +92,7 @@ export default async function MemberPage({params}: { params: Promise<{ id: strin
                     </section>
                 )}
                 <div><Button variant="outline" nativeButton={false} render={<Link href="/board/members"/>}>{t("back")}</Button></div>
-            </div>
+            </Page>
         );
     });
 }

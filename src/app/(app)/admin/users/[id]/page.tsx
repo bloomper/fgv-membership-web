@@ -1,13 +1,14 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import {getTranslations} from "next-intl/server";
-import {Badge} from "@/components/ui/badge";
+import {Badge} from "@bloomper/fgv-web-ui/ui/badge";
 import {AccessForm, RejectForm, UserActionButton} from "@/components/admin/user-controls.client";
 import {GraphQLRequestError} from "@/lib/graphql.server";
 import {getUser} from "@/lib/users/users.server";
 import {formatDate} from "@/utils/format";
 import {Policies} from "@/utils/policy.server";
 import {withPolicyPage} from "@/utils/route.server";
+import {Page, PageHeader} from "@bloomper/fgv-web-ui/shell/page-header";
 
 /** One account: its access to each application, and what an administrator can do with it. */
 export default async function UserPage({params}: { params: Promise<{ id: string }> }) {
@@ -29,16 +30,13 @@ export default async function UserPage({params}: { params: Promise<{ id: string 
         const pending = user.status === "PENDING" || user.status === "UNVERIFIED";
 
         return (
-            <div className="flex flex-1 flex-col gap-8 p-4 md:p-8">
-                <p><Link className="underline underline-offset-4" href="/admin/users">← {t("title")}</Link></p>
-                <header className="space-y-1">
-                    <h1 className="text-2xl font-bold tracking-tight">{user.displayName}</h1>
-                    <p>{user.email}</p>
-                    <p className="text-sm text-muted-foreground">
-                        <Badge variant="secondary">{t(`statuses.${user.status}`)}</Badge>
-                        {user.createdAt ? ` ${t("registered")} ${formatDate(user.createdAt)}` : ""}
-                    </p>
-                </header>
+            <Page variant="content">
+                <PageHeader
+                    title={user.displayName}
+                    eyebrow={<Link className="text-link hover:text-link/80" href="/admin/users">← {t("title")}</Link>}
+                    badges={<Badge variant="secondary">{t(`statuses.${user.status}`)}</Badge>}
+                    description={`${user.email}${user.createdAt ? ` · ${t("registered")} ${formatDate(user.createdAt)}` : ""}`}
+                />
 
                 {user.registrationMessage && (
                     <section className="space-y-1">
@@ -81,7 +79,7 @@ export default async function UserPage({params}: { params: Promise<{ id: string 
                         <RejectForm userId={user.id}/>
                     </section>
                 )}
-            </div>
+            </Page>
         );
     });
 }

@@ -3,10 +3,10 @@
 import {useId, useState, useTransition} from "react";
 import {useRouter} from "next/navigation";
 import {useTranslations} from "next-intl";
-import {Button} from "@/components/ui/button";
-import {Checkbox} from "@/components/ui/checkbox";
-import {Label} from "@/components/ui/label";
-import {Textarea} from "@/components/ui/textarea";
+import {Button} from "@bloomper/fgv-web-ui/ui/button";
+import {Checkbox} from "@bloomper/fgv-web-ui/ui/checkbox";
+import {Label} from "@bloomper/fgv-web-ui/ui/label";
+import {Textarea} from "@bloomper/fgv-web-ui/ui/textarea";
 import {FormError} from "@/components/form-error";
 import {requestPaymentAction} from "@/app/(app)/membership/actions.server";
 import {useActionFeedback} from "@/hooks/use-action-feedback";

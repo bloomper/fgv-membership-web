@@ -1,7 +1,7 @@
-import {Logo} from "@/components/logo";
-import {LogoText} from "@/components/logo-text";
-import {ModeToggle} from "@/components/mode-toggle.client";
-import {LanguageToggle} from "@/components/language-toggle.client";
+import {Logo} from "@bloomper/fgv-web-ui/shell/logo";
+import {LogoText} from "@bloomper/fgv-web-ui/shell/logo-text";
+import {ModeToggle} from "@bloomper/fgv-web-ui/shell/toggles";
+import {LanguageToggle} from "@bloomper/fgv-web-ui/shell/toggles";
 
 /** The header of the pages that have no sidebar: the start page for visitors, registration and personal payment links. */
 export function PublicHeader() {
