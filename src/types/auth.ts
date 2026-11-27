@@ -7,11 +7,11 @@ export type AuthzOk = { ok: true; roles: Role[] };
 export type AuthzResult = AuthzOk | AuthzFail;
 
 export type AccessTokenClaims = {
-    resource_access?: {
-        [resource: string]:
-            | {
-            roles?: string[];
+  resource_access?: {
+    [resource: string]:
+      | {
+          roles?: string[];
         }
-            | undefined;
-    };
+      | undefined;
+  };
 };

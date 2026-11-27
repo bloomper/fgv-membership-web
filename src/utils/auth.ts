@@ -1,4 +1,4 @@
-import {AccessTokenClaims, type Role, ROLES} from "@/types/auth";
+import { AccessTokenClaims, type Role, ROLES } from "@/types/auth";
 
 export const CLIENT_ID = "fgv-membership";
 
@@ -17,35 +17,31 @@ export const isAdmin = (roles: readonly Role[]) => roles.includes("ADMIN");
  * one below it. Roles that are not people's, such as the service roles, are ignored.
  */
 export function extractRolesFromClaims(claims: AccessTokenClaims): Role[] {
-    const held = claims.resource_access?.[CLIENT_ID]?.roles ?? [];
-    const top = Math.max(...ROLES.map((role, index) => (held.includes(role) ? index : -1)));
+  const held = claims.resource_access?.[CLIENT_ID]?.roles ?? [];
+  const top = Math.max(...ROLES.map((role, index) => (held.includes(role) ? index : -1)));
 
-    return ROLES.slice(0, top + 1);
+  return ROLES.slice(0, top + 1);
 }
 
-export const appendLogoutParams = (
-    logoutUrl: string,
-    locale?: string,
-    theme?: "light" | "dark" | "system"
-): string => {
-    if (!locale && !theme) {
-        return logoutUrl;
-    }
+export const appendLogoutParams = (logoutUrl: string, locale?: string, theme?: "light" | "dark" | "system"): string => {
+  if (!locale && !theme) {
+    return logoutUrl;
+  }
 
-    const separator = logoutUrl.includes("?") ? "&" : "?";
-    const urlParams = new URLSearchParams();
+  const separator = logoutUrl.includes("?") ? "&" : "?";
+  const urlParams = new URLSearchParams();
 
-    if (locale) {
-        urlParams.append("ui_locales", locale);
-    }
-    if (theme) {
-        urlParams.append("theme", theme);
-    }
+  if (locale) {
+    urlParams.append("ui_locales", locale);
+  }
+  if (theme) {
+    urlParams.append("theme", theme);
+  }
 
-    return `${logoutUrl}${separator}${urlParams.toString()}`;
+  return `${logoutUrl}${separator}${urlParams.toString()}`;
 };
 
 export function normalizeTheme(value?: string): "light" | "dark" | "system" | undefined {
-    if (value === "light" || value === "dark" || value === "system") return value;
-    return undefined;
+  if (value === "light" || value === "dark" || value === "system") return value;
+  return undefined;
 }

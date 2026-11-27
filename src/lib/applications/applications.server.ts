@@ -1,7 +1,7 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // Applications for a membership, which the board decides (application.graphqls).
 
@@ -20,13 +20,13 @@ const RejectApplicationMutation = graphql(`
 `);
 
 export async function getPendingApplications() {
-    return (await runQuery(PendingApplicationsQuery, {}))?.membershipApplications ?? [];
+  return (await runQuery(PendingApplicationsQuery, {}))?.membershipApplications ?? [];
 }
 
 export async function acceptApplication(id: string, spexareId: string | null) {
-    await runMutation(AcceptApplicationMutation, {id, spexareId});
+  await runMutation(AcceptApplicationMutation, { id, spexareId });
 }
 
 export async function rejectApplication(id: string, message: string | null) {
-    await runMutation(RejectApplicationMutation, {id, message});
+  await runMutation(RejectApplicationMutation, { id, message });
 }

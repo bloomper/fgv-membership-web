@@ -27,7 +27,7 @@ Keycloak, Tailwind 4, the React Compiler and Cache Components. When something he
 
 - `npm run dev` / `build` / `start` (dev on port 3007)
 - `npm run lint` (ESLint), `npm run typecheck` (tsc) — typecheck only covers `src/**`, so `next.config.ts`,
-  `codegen.ts` and `eslint.config.mts` are *not* type-checked by it.
+  `codegen.ts` and `eslint.config.mts` are _not_ type-checked by it.
 - `npm run test` (Vitest), `npm run test:e2e` (Playwright: a desktop and a phone-sized Chromium)
 - `npm run gql-codegen` — regenerate `src/gql/` from the server's schema files in a sibling `fgv-membership-server`
   checkout (introspection is off). Commit the result: CI never regenerates it.
@@ -41,10 +41,10 @@ comes from `.nvmrc`.
 ## File conventions
 
 - **A module's directive and its filename must agree**, both ways:
-    - `"use client"` ⇔ `*.client.ts(x)` — components *and* hooks.
-    - `import "server-only"` ⇔ `*.server.ts` (libs, utils).
-    - `"use server"` ⇔ `*.server.ts` too — the `actions.server.ts` server-action modules. Don't add `server-only` to a
-      `"use server"` file.
+  - `"use client"` ⇔ `*.client.ts(x)` — components _and_ hooks.
+  - `import "server-only"` ⇔ `*.server.ts` (libs, utils).
+  - `"use server"` ⇔ `*.server.ts` too — the `actions.server.ts` server-action modules. Don't add `server-only` to a
+    `"use server"` file.
 - Standing exceptions: `src/auth.ts` and Next.js reserved filenames (`page.tsx`, `layout.tsx`, `error.tsx`, ...).
 - `src/gql/**` (generated) is ESLint-ignored — don't hand-edit it.
 

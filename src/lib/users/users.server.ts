@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {UserStatus} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { UserStatus } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // The accounts of FGV's applications (admin.graphqls), which an administrator keeps.
 
@@ -53,33 +53,33 @@ const SendPasswordResetEmailMutation = graphql(`
 `);
 
 export async function listUsers(search: string, status: UserStatus | undefined, first: number, max: number) {
-    return (await runQuery(UsersQuery, {search: search || null, status: status ?? null, first, max}))?.users;
+  return (await runQuery(UsersQuery, { search: search || null, status: status ?? null, first, max }))?.users;
 }
 
 export async function getUser(id: string) {
-    return (await runQuery(UserQuery, {id}))?.user;
+  return (await runQuery(UserQuery, { id }))?.user;
 }
 
 export async function setUserEnabled(id: string, enabled: boolean) {
-    await runMutation(SetUserEnabledMutation, {id, enabled});
+  await runMutation(SetUserEnabledMutation, { id, enabled });
 }
 
 export async function setApplicationAccess(userId: string, clientId: string, role: string | null, notify: boolean) {
-    await runMutation(SetApplicationAccessMutation, {userId, clientId, role, notify});
+  await runMutation(SetApplicationAccessMutation, { userId, clientId, role, notify });
 }
 
 export async function rejectUser(id: string, message: string | null, notify: boolean) {
-    await runMutation(RejectUserMutation, {id, message, notify});
+  await runMutation(RejectUserMutation, { id, message, notify });
 }
 
 export async function resendVerification(id: string) {
-    await runMutation(ResendVerificationMutation, {id});
+  await runMutation(ResendVerificationMutation, { id });
 }
 
 export async function sendSetPasswordEmail(id: string) {
-    await runMutation(SendSetPasswordEmailMutation, {id});
+  await runMutation(SendSetPasswordEmailMutation, { id });
 }
 
 export async function sendPasswordResetEmail(id: string) {
-    await runMutation(SendPasswordResetEmailMutation, {id});
+  await runMutation(SendPasswordResetEmailMutation, { id });
 }

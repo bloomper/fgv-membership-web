@@ -1,7 +1,7 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // A person's own membership: what they have, what they owe, and applying (membership.graphqls, application.graphqls).
 
@@ -47,29 +47,29 @@ const ReportPaidMutation = graphql(`
 `);
 
 export async function getMyMembership() {
-    return (await runQuery(MyMembershipQuery, {}))?.myMembership;
+  return (await runQuery(MyMembershipQuery, {}))?.myMembership;
 }
 
 export async function getMyApplication() {
-    return (await runQuery(MyApplicationQuery, {}))?.myApplication;
+  return (await runQuery(MyApplicationQuery, {}))?.myApplication;
 }
 
 export async function getFeeLevels() {
-    return (await runQuery(FeeLevelsQuery, {}))?.feeLevels ?? [];
+  return (await runQuery(FeeLevelsQuery, {}))?.feeLevels ?? [];
 }
 
 export async function getPaymentRequest(id: string) {
-    return (await runQuery(PaymentRequestQuery, {id}))?.paymentRequest;
+  return (await runQuery(PaymentRequestQuery, { id }))?.paymentRequest;
 }
 
 export async function applyForMembership(name: string, text: string) {
-    await runMutation(ApplyForMembershipMutation, {name, text});
+  await runMutation(ApplyForMembershipMutation, { name, text });
 }
 
 export async function requestPayment(feeLevelIds: string[], familyNote: string | null) {
-    return (await runMutation(RequestPaymentMutation, {feeLevelIds, familyNote}))?.requestPayment.id;
+  return (await runMutation(RequestPaymentMutation, { feeLevelIds, familyNote }))?.requestPayment.id;
 }
 
 export async function reportPaid(id: string, paidBy: string | null) {
-    await runMutation(ReportPaidMutation, {id, paidBy});
+  await runMutation(ReportPaidMutation, { id, paidBy });
 }

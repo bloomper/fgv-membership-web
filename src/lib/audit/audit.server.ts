@@ -1,7 +1,7 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import {runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import { runQuery } from "@/lib/graphql.server";
 
 // Who changed what (admin.graphqls).
 
@@ -12,5 +12,5 @@ const AuditLogQuery = graphql(`
 `);
 
 export async function getAuditLog(first: number, max: number) {
-    return (await runQuery(AuditLogQuery, {first, max}))?.auditLog ?? [];
+  return (await runQuery(AuditLogQuery, { first, max }))?.auditLog ?? [];
 }

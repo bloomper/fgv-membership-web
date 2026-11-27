@@ -1,7 +1,7 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // The scheduled jobs, which an administrator can also run now (admin.graphqls).
 
@@ -14,9 +14,9 @@ const RunMaintenanceJobMutation = graphql(`
 `);
 
 export async function getMaintenanceJobs() {
-    return (await runQuery(MaintenanceJobsQuery, {}))?.maintenanceJobs ?? [];
+  return (await runQuery(MaintenanceJobsQuery, {}))?.maintenanceJobs ?? [];
 }
 
 export async function runMaintenanceJob(name: string) {
-    return (await runMutation(RunMaintenanceJobMutation, {name}))?.runMaintenanceJob;
+  return (await runMutation(RunMaintenanceJobMutation, { name }))?.runMaintenanceJob;
 }

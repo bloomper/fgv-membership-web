@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {AccessProfile} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { AccessProfile } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // The access a new account gets when it is made from a payment elsewhere (defaultAccess.graphqls).
 
@@ -19,9 +19,9 @@ const SetDefaultAccessMutation = graphql(`
 `);
 
 export async function getDefaultAccess(profile: AccessProfile) {
-    return (await runQuery(DefaultAccessQuery, {profile}))?.defaultAccess ?? [];
+  return (await runQuery(DefaultAccessQuery, { profile }))?.defaultAccess ?? [];
 }
 
 export async function setDefaultAccess(profile: AccessProfile, clientId: string, role: string | null) {
-    await runMutation(SetDefaultAccessMutation, {profile, clientId, role});
+  await runMutation(SetDefaultAccessMutation, { profile, clientId, role });
 }

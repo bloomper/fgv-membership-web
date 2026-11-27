@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {SettingsInput} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { SettingsInput } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // Where members pay, who is told, and when payers are reminded (admin.graphqls).
 
@@ -15,9 +15,9 @@ const SaveSettingsMutation = graphql(`
 `);
 
 export async function getSettings() {
-    return (await runQuery(SettingsQuery, {}))?.settings;
+  return (await runQuery(SettingsQuery, {}))?.settings;
 }
 
 export async function saveSettings(input: SettingsInput) {
-    await runMutation(SaveSettingsMutation, {input});
+  await runMutation(SaveSettingsMutation, { input });
 }
