@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {FeeLevelInput} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { FeeLevelInput } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // The fee levels members pick from (payment.graphqls), which an administrator keeps.
 
@@ -19,13 +19,13 @@ const FeeLevelRetireMutation = graphql(`
 `);
 
 export async function getAllFeeLevels() {
-    return (await runQuery(AllFeeLevelsQuery, {}))?.allFeeLevels ?? [];
+  return (await runQuery(AllFeeLevelsQuery, {}))?.allFeeLevels ?? [];
 }
 
 export async function saveFeeLevel(input: FeeLevelInput) {
-    await runMutation(FeeLevelSaveMutation, {input});
+  await runMutation(FeeLevelSaveMutation, { input });
 }
 
 export async function retireFeeLevel(id: string, retired: boolean) {
-    await runMutation(FeeLevelRetireMutation, {id, retired});
+  await runMutation(FeeLevelRetireMutation, { id, retired });
 }

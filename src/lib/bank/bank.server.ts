@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {BankFormatInput} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { BankFormatInput } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // Bank statements and the transactions in them (bank.graphqls), which the treasurer matches and an administrator sets up.
 
@@ -45,33 +45,33 @@ const BankFormatDeleteMutation = graphql(`
 `);
 
 export async function getBankFormats() {
-    return (await runQuery(BankFormatsQuery, {}))?.bankFormats ?? [];
+  return (await runQuery(BankFormatsQuery, {}))?.bankFormats ?? [];
 }
 
 export async function getUnmatchedTransactions() {
-    return (await runQuery(UnmatchedTransactionsQuery, {}))?.unmatchedTransactions ?? [];
+  return (await runQuery(UnmatchedTransactionsQuery, {}))?.unmatchedTransactions ?? [];
 }
 
 export async function getTransactionSuggestions(id: string) {
-    return (await runQuery(TransactionSuggestionsQuery, {id}))?.transactionSuggestions ?? [];
+  return (await runQuery(TransactionSuggestionsQuery, { id }))?.transactionSuggestions ?? [];
 }
 
 export async function importStatement(formatId: string, fileName: string, content: string) {
-    return (await runMutation(ImportStatementMutation, {formatId, fileName, content}))?.importStatement;
+  return (await runMutation(ImportStatementMutation, { formatId, fileName, content }))?.importStatement;
 }
 
 export async function matchTransaction(id: string, requestIds: string[]) {
-    await runMutation(MatchTransactionMutation, {id, requestIds});
+  await runMutation(MatchTransactionMutation, { id, requestIds });
 }
 
 export async function dismissTransaction(id: string) {
-    await runMutation(DismissTransactionMutation, {id});
+  await runMutation(DismissTransactionMutation, { id });
 }
 
 export async function saveBankFormat(input: BankFormatInput) {
-    await runMutation(BankFormatSaveMutation, {input});
+  await runMutation(BankFormatSaveMutation, { input });
 }
 
 export async function deleteBankFormat(id: string) {
-    await runMutation(BankFormatDeleteMutation, {id});
+  await runMutation(BankFormatDeleteMutation, { id });
 }

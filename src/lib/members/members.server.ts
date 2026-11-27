@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {PaymentHow} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { PaymentHow } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // The board's view of the members (board.graphqls) and of family requests (payment.graphqls).
 
@@ -70,46 +70,58 @@ const AddFamilyMembersMutation = graphql(`
     mutation AddFamilyMembers($requestId: ID!, $spexareIds: [ID!]!) { addFamilyMembers(requestId: $requestId, spexareIds: $spexareIds) { id } }
 `);
 
-export async function listMembers(year: number, status: string | null, how: string | null, wasMemberLastYear: boolean | null) {
-    return (await runQuery(MembersQuery, {year, status, how, was: wasMemberLastYear}))?.members ?? [];
+export async function listMembers(
+  year: number,
+  status: string | null,
+  how: string | null,
+  wasMemberLastYear: boolean | null
+) {
+  return (await runQuery(MembersQuery, { year, status, how, was: wasMemberLastYear }))?.members ?? [];
 }
 
 export async function getMemberTrend() {
-    return (await runQuery(MemberTrendQuery, {}))?.memberTrend ?? [];
+  return (await runQuery(MemberTrendQuery, {}))?.memberTrend ?? [];
 }
 
 export async function getMemberDetail(spexareId: string) {
-    return (await runQuery(MemberDetailQuery, {id: spexareId}))?.memberDetail;
+  return (await runQuery(MemberDetailQuery, { id: spexareId }))?.memberDetail;
 }
 
 export async function searchSpexare(q: string) {
-    return (await runQuery(SpexareSearchQuery, {q}))?.spexareSearch ?? [];
+  return (await runQuery(SpexareSearchQuery, { q }))?.spexareSearch ?? [];
 }
 
 export async function getRenewalPreview(year: number, feeLevelId: string) {
-    return (await runQuery(RenewalPreviewQuery, {year, fee: feeLevelId}))?.renewalPreview;
+  return (await runQuery(RenewalPreviewQuery, { year, fee: feeLevelId }))?.renewalPreview;
 }
 
 export async function getFamilyRequest(id: string) {
-    return (await runQuery(FamilyRequestQuery, {id}))?.paymentRequest;
+  return (await runQuery(FamilyRequestQuery, { id }))?.paymentRequest;
 }
 
 export async function sendRenewals(year: number, feeLevelId: string) {
-    return (await runMutation(SendRenewalsMutation, {year, fee: feeLevelId}))?.sendRenewals;
+  return (await runMutation(SendRenewalsMutation, { year, fee: feeLevelId }))?.sendRenewals;
 }
 
 export async function grantWaiver(spexareId: string, year: number, lifetime: boolean, note: string) {
-    await runMutation(GrantWaiverMutation, {spexareId, year, lifetime, note});
+  await runMutation(GrantWaiverMutation, { spexareId, year, lifetime, note });
 }
 
-export async function recordPaymentWithoutRequest(spexareId: string, fees: string[], paidOn: string, amount: number, how: PaymentHow, note: string | null) {
-    await runMutation(RecordPaymentWithoutRequestMutation, {spexareId, fees, paidOn, amount, how, note});
+export async function recordPaymentWithoutRequest(
+  spexareId: string,
+  fees: string[],
+  paidOn: string,
+  amount: number,
+  how: PaymentHow,
+  note: string | null
+) {
+  await runMutation(RecordPaymentWithoutRequestMutation, { spexareId, fees, paidOn, amount, how, note });
 }
 
 export async function sendPaymentLink(spexareId: string, fees: string[]) {
-    return (await runMutation(SendPaymentLinkMutation, {spexareId, fees}))?.sendPaymentLink ?? false;
+  return (await runMutation(SendPaymentLinkMutation, { spexareId, fees }))?.sendPaymentLink ?? false;
 }
 
 export async function addFamilyMembers(requestId: string, spexareIds: string[]) {
-    await runMutation(AddFamilyMembersMutation, {requestId, spexareIds});
+  await runMutation(AddFamilyMembersMutation, { requestId, spexareIds });
 }

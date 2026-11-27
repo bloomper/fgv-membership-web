@@ -1,4 +1,4 @@
-import {graphql} from "@/gql";
+import { graphql } from "@/gql";
 
 /** A payment request as the payer and the treasurer see it. */
 export const PaymentRequestFields = graphql(`

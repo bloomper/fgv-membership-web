@@ -1,8 +1,8 @@
 import "server-only";
 
-import {graphql} from "@/gql";
-import type {PaymentHow} from "@/gql/graphql";
-import {runMutation, runQuery} from "@/lib/graphql.server";
+import { graphql } from "@/gql";
+import type { PaymentHow } from "@/gql/graphql";
+import { runMutation, runQuery } from "@/lib/graphql.server";
 
 // What the treasurer handles: the requests that wait for money and the payments recorded (payment.graphqls, bank.graphqls).
 
@@ -33,21 +33,27 @@ const UndoPaymentMutation = graphql(`
 `);
 
 export async function getWaitingRequests() {
-    return (await runQuery(WaitingRequestsQuery, {}))?.waitingPaymentRequests ?? [];
+  return (await runQuery(WaitingRequestsQuery, {}))?.waitingPaymentRequests ?? [];
 }
 
 export async function getPaymentsThisYear() {
-    return (await runQuery(PaymentsThisYearQuery, {}))?.paymentsThisYear ?? [];
+  return (await runQuery(PaymentsThisYearQuery, {}))?.paymentsThisYear ?? [];
 }
 
-export async function recordPayment(requestId: string, paidOn: string, amount: number, how: PaymentHow, note: string | null) {
-    await runMutation(RecordPaymentMutation, {requestId, paidOn, amount, how, note});
+export async function recordPayment(
+  requestId: string,
+  paidOn: string,
+  amount: number,
+  how: PaymentHow,
+  note: string | null
+) {
+  await runMutation(RecordPaymentMutation, { requestId, paidOn, amount, how, note });
 }
 
 export async function cancelPaymentRequest(id: string) {
-    await runMutation(CancelPaymentRequestMutation, {id});
+  await runMutation(CancelPaymentRequestMutation, { id });
 }
 
 export async function undoPayment(id: string) {
-    await runMutation(UndoPaymentMutation, {id});
+  await runMutation(UndoPaymentMutation, { id });
 }

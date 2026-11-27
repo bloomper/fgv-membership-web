@@ -75,5 +75,4 @@ leave stale generated types behind. If a build fails with `Cannot find module '.
 pointing into `.next/dev/types/`, remove `.next` and build again.
 
 [1]: CODE_OF_CONDUCT.md
-
 [2]: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
